@@ -1,4 +1,4 @@
-import {Transaction, User} from '../types';
+import type {Transaction, User} from '../types';
 
 const STORAGE_KEYS = {
 TRANSACTIONS: 'expense_tracker_transactions',
