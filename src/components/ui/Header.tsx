@@ -1,5 +1,5 @@
 import React from 'react';
-import {useExpenseStore} from '../../store/expenseStore';
+import {useExpenseStore} from '../../store/useExpenseStore';
 
 export const Header: React.FC = () =>{
   const user = useExpenseStore(state => state.user);
@@ -21,7 +21,7 @@ return (
           </h1>
         </div>
 
-        {/* Навігація */}
+        {/* Навігаціяяяя*/}
         <nav className="hidden md:flex space-x-8">
             <button className="text-gray-600 hover:text-blue-600 transition-colors px-3 py-2 rounded-md text-sm font-medium">
               📊 Dashboard
@@ -34,9 +34,29 @@ return (
             </button>
           </nav>
 
-
+          <div className="flex items-center space-x-4">
+            {user ? (
+              <div className="flex items-center space-x-3">
+                <div className="text-sm textgray-700">
+                  Hello, <span className='font-medium'>{user.displayName || user.email}</span>
+                </div>
+                <button onClick={handleLogout} className='bg-red-500 hover:bg-red-600 text-white px-3  py-1 rounded-md text-sm transition-colors"'>
+                  Logout
+                </button>
+              </div>
+            ) : (
+             <div className="flex space-x-2">
+                <button className="bg-blue-500 hover:bg-blue-600 text-white px-4 py-2 rounded-md text-sm transition-colors">
+                  Login
+                </button>
+                <button className="border border-blue-500 text-blue-500 hover:bg-blue-50 px-4 py-2 rounded-md text-sm transition-colors">
+                  Sign Up
+                </button>
+              </div>
+            )}
+          </div>
       </div>
     </div>
   </header>
-)
-}
+);
+};
