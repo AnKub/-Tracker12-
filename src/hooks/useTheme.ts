@@ -1,23 +1,23 @@
-// import { useEffect, useState } from "react";
-// import {getCurrentTheme, setTheme as saveTheme, type ThemeName} from '../constants/theme';
+import { useEffect, useState } from "react";
+import {getCurrentTheme, setTheme as saveTheme, type ThemeName} from '../constants/theme';
 
-// export const useTheme = () => {
-//   const [theme, setThemeState] = useState<ThemeName>(getCurrentTheme);
+export const useTheme = () => {
+  const [theme, setThemeState] = useState<ThemeName>(getCurrentTheme);
 
-//   useEffect(() => {
-//     saveTheme(theme);
-//   }, [theme]);
+  useEffect(() => {
+    saveTheme(theme);
+  }, [theme]);
 
 
-// const toggleTheme = () => {
-//   const newTheme = theme === 'light' ? 'dark' : 'light';
-//   setThemeState(newTheme);  
-// };  
+const toggleTheme = () => {
+  const newTheme = theme === 'light' ? 'dark' : 'light';
+  setThemeState(newTheme);  
+};  
 
-// const setTheme = (newTheme: ThemeName) =>{
-//   setThemeState(newTheme);
-// };
+const setTheme = (newTheme: ThemeName) =>{
+  setThemeState(newTheme);
+};
 
-// return {theme,toggleTheme, setTheme};
+return {theme,toggleTheme, setTheme};
 
-// }
+}
