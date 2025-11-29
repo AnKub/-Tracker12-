@@ -215,7 +215,7 @@ set({ data: newData });
 // 2. localStorage (повільно, але назавжди)
 localStorage.setItem('key', JSON.stringify(newData));
 
-// При завантаженні програми:
+// При завантаженні проги:
 const savedData = localStorage.getItem('key');
 const initialData = savedData ? JSON.parse(savedData) : defaultData;
 ```
