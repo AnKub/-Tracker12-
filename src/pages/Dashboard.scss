@@ -1,0 +1,183 @@
+// 📊 Dashboard Component Styles
+@import '../styles/variables';
+@import '../styles/mixins';
+
+.dashboard {
+  display: flex;
+  flex-direction: column;
+  gap: $spacing-2xl;
+
+  &__header {
+    margin-bottom: $spacing-lg;
+  }
+
+  &__title {
+    font-size: 2rem;
+    font-weight: 700;
+    @include text-primary;
+    margin-bottom: $spacing-sm;
+  }
+
+  &__subtitle {
+    @include text-secondary;
+    margin-bottom: 0;
+  }
+
+  &__stats {
+    @include responsive-grid(280px);
+  }
+
+  &__section {
+    @include card;
+  }
+
+  &__section-title {
+    font-size: 1.25rem;
+    font-weight: 600;
+    @include text-primary;
+    margin-bottom: $spacing-lg;
+  }
+
+  &__actions {
+    display: flex;
+    flex-wrap: wrap;
+    gap: $spacing-md;
+  }
+}
+
+// Stat Cards
+.stat-card {
+  @include card;
+  
+  &__content {
+    @include flex-between;
+  }
+
+  &__info {
+    flex: 1;
+  }
+
+  &__label {
+    font-size: 0.875rem;
+    @include text-secondary;
+    margin-bottom: $spacing-xs;
+  }
+
+  &__value {
+    font-size: 1.5rem;
+    font-weight: 700;
+    margin-bottom: 0;
+  }
+
+  &__icon {
+    font-size: 2rem;
+    margin-left: $spacing-md;
+  }
+}
+
+// Buttons
+.btn {
+  @include button-base;
+  gap: $spacing-sm;
+  
+  &--primary {
+    @include button-primary;
+  }
+  
+  &--success {
+    @include button-success;
+  }
+  
+  &--error {
+    @include button-error;
+  }
+}
+
+// Welcome Screen
+.welcome-screen {
+  @include flex-center;
+  min-height: 80vh;
+}
+
+.welcome-content {
+  text-align: center;
+  max-width: 400px;
+}
+
+.welcome-title {
+  font-size: 1.5rem;
+  font-weight: 700;
+  @include text-primary;
+  margin-bottom: $spacing-md;
+}
+
+.welcome-message {
+  @include text-secondary;
+  margin-bottom: 0;
+}
+
+// Empty State
+.empty-state {
+  text-align: center;
+  padding: $spacing-2xl 0;
+
+  &__icon {
+    font-size: 3rem;
+    margin-bottom: $spacing-md;
+  }
+
+  &__message {
+    @include text-secondary;
+    margin-bottom: 0;
+  }
+}
+
+// Transactions List
+.transactions-list {
+  display: flex;
+  flex-direction: column;
+  gap: $spacing-md;
+}
+
+.transaction-item {
+  @include flex-between;
+  padding: $spacing-md;
+  background: $light-background;
+  border-radius: $border-radius-md;
+  transition: background-color $transition-normal;
+  
+  .dark & {
+    background: lighten($dark-background, 5%);
+  }
+
+  &__info {
+    display: flex;
+    align-items: center;
+    gap: $spacing-md;
+  }
+
+  &__icon {
+    font-size: 1.5rem;
+  }
+
+  &__details {
+    flex: 1;
+  }
+
+  &__description {
+    font-weight: 500;
+    @include text-primary;
+    margin-bottom: $spacing-xs;
+  }
+
+  &__meta {
+    font-size: 0.875rem;
+    @include text-secondary;
+    margin-bottom: 0;
+  }
+
+  &__amount {
+    font-weight: 600;
+    font-size: 1rem;
+  }
+}

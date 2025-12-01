@@ -99,3 +99,22 @@ clearError: () => {
   set({error: null});
 },
 }));
+
+// 🔄 Ініціалізуємо з тестовим користувачем для демонстрації
+const initializeStore = () => {
+  const currentUser = userStorage.getCurrent();
+  if (!currentUser) {
+    // Створюємо тестового користувача
+    const testUser: User = {
+      uid: 'test-user-123',
+      email: 'test@example.com',
+      displayName: 'Тестовий користувач'
+    };
+    useExpenseStore.getState().setUser(testUser);
+  } else {
+    useExpenseStore.getState().setUser(currentUser);
+  }
+};
+
+// Ініціалізуємо store
+initializeStore();

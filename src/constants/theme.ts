@@ -1,27 +1,31 @@
 export const themes = {
   light: {
-    primary: 'blue-500',
-    primaryHover: 'blue-600', 
-    background: 'gray-50',
-    card: 'white',
-    text: 'gray-900',
-    textSecondary: 'gray-600',
-    border: 'gray-200',
-    success: 'green-500',
-    error: 'red-500',
-    warning: 'yellow-500',
+    primary: 'bg-blue-500 text-white',
+    primaryHover: 'hover:bg-blue-600',
+    background: 'bg-gray-50',
+    card: 'bg-white',
+    text: 'text-gray-900',
+    textSecondary: 'text-gray-600',
+    border: 'border-gray-200',
+    success: 'text-green-500',
+    error: 'text-red-500',
+    warning: 'text-yellow-500',
+    income: 'text-green-500',
+    expense: 'text-red-500',
   },
   dark: {
-    primary: 'blue-400',
-    primaryHover: 'blue-300',
-    background: 'gray-900', 
-    card: 'gray-800',
-    text: 'gray-50',
-    textSecondary: 'gray-300',
-    border: 'gray-700',
-    success: 'green-400',
-    error: 'red-400', 
-    warning: 'yellow-400',
+    primary: 'bg-blue-500 text-white',
+    primaryHover: 'hover:bg-blue-400',
+    background: 'bg-gray-900',
+    card: 'bg-gray-800',
+    text: 'text-gray-50',
+    textSecondary: 'text-gray-300',
+    border: 'border-gray-700',
+    success: 'text-green-400',
+    error: 'text-red-400',
+    warning: 'text-yellow-400',
+    income: 'text-green-400',
+    expense: 'text-red-400',
   }
 } as const;
 
@@ -34,7 +38,12 @@ export const getCurrentTheme = (): ThemeName => {
 
 export const setTheme = (themeName: ThemeName) => {
   localStorage.setItem('theme', themeName);
-  document.body.className = `theme-${themeName}`;
+  // Додаємо клас до html елемента для dark mode
+  if (themeName === 'dark') {
+    document.documentElement.classList.add('dark');
+  } else {
+    document.documentElement.classList.remove('dark');
+  }
 };
 
 export const getThemeColors = (themeName?: ThemeName) => {

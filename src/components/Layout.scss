@@ -1,0 +1,27 @@
+// 📦 Layout Component Styles
+@import '../styles/variables';
+@import '../styles/mixins';
+
+.layout {
+  min-height: 100vh;
+  background: $light-background;
+  transition: background-color $transition-normal;
+  
+  .dark & {
+    background: $dark-background;
+  }
+
+  &__main {
+    @include container;
+    padding-top: $spacing-lg;
+    padding-bottom: $spacing-lg;
+  }
+
+  &__content {
+    padding: $spacing-lg $spacing-md;
+    
+    @media (min-width: 640px) {
+      padding: $spacing-lg;
+    }
+  }
+}
