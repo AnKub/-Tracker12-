@@ -1,11 +1,10 @@
-// 🎯 Header Component Styles
 @import '../../styles/variables';
 @import '../../styles/mixins';
 
 .header {
   background: $light-card;
   border-bottom: 1px solid $light-border;
-  box-shadow: $shadow-sm;
+  box-shadow: $box-shadow-sm;
   transition: background-color $transition-normal, border-color $transition-normal;
   
   .dark & {

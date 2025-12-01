@@ -31,14 +31,14 @@ loadTransactions: () => {
     set({transactions});
 
  }catch (error) {
-  set({error: 'Transactions loading error'});
+  set({error: 'Failed to load transactions'});
  }
 },
 addTransaction: (transaction)=>{
   try {
     const user = get().user;
     if(!user){
-      set({error: 'Need to log in'});
+      set({error: 'Please log in first'});
       return;
     }
     const transactionWithUser = {
@@ -52,7 +52,7 @@ addTransaction: (transaction)=>{
       error: null,
     });
   }catch (error){
-    set({error: 'Error adding transaction'});
+    set({error: 'Failed to add transaction'});
   }
 },
 updateTransaction: (id, updates) => {
@@ -69,7 +69,7 @@ updateTransaction: (id, updates) => {
     );
     set({ transactions: newTransactions, error: null });
   }catch(error){
-    set({error: 'Error updating transaction'});
+    set({error: 'Failed to update transaction'});
   }
 },
 
@@ -82,7 +82,7 @@ deleteTransaction : (id)=> {
       error: null
     });
   }catch (error) {
-    set({error : 'Error deleting transaction'});
+    set({error : 'Failed to delete transaction'});
   }
 },
 
@@ -103,11 +103,10 @@ clearError: () => {
 const initializeStore = () => {
   const currentUser = userStorage.getCurrent();
   if (!currentUser) {
-    // тест корист
     const testUser: User = {
       uid: 'test-user-123',
       email: 'test@example.com',
-      displayName: 'Тестовий користувач'
+      displayName: 'Demo User'
     };
     useExpenseStore.getState().setUser(testUser);
   } else {
@@ -115,5 +114,4 @@ const initializeStore = () => {
   }
 };
 
-// Ініціалізуємо store
 initializeStore();

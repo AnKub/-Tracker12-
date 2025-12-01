@@ -13,7 +13,6 @@ export const Dashboard: React.FC = () => {
     loadTransactions();
   }, [loadTransactions]);
 
-  // cтати 
   const totalIncome = transactions
     .filter(t => t.type === 'income')
     .reduce((sum, t) => sum + t.amount, 0);
@@ -24,7 +23,6 @@ export const Dashboard: React.FC = () => {
 
   const balance = totalIncome - totalExpense;
 
-  // Останні 5 
   const recentTransactions = transactions
     .sort((a, b) => new Date(b.createdAt).getTime() - new Date(a.createdAt).getTime())
     .slice(0, 5);
@@ -51,7 +49,7 @@ export const Dashboard: React.FC = () => {
           Dashboard
         </h1>
         <p className="dashboard__subtitle">
-            Overview of your financial activities
+          Overview of your financial activities
         </p>
       </div>
 
