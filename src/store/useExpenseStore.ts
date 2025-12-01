@@ -100,11 +100,10 @@ clearError: () => {
 },
 }));
 
-// 🔄 Ініціалізуємо з тестовим користувачем для демонстрації
 const initializeStore = () => {
   const currentUser = userStorage.getCurrent();
   if (!currentUser) {
-    // Створюємо тестового користувача
+    // тест корист
     const testUser: User = {
       uid: 'test-user-123',
       email: 'test@example.com',
