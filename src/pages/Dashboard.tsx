@@ -35,7 +35,7 @@ export const Dashboard: React.FC = () => {
             👋 Welcome 
           </h2>
           <p className="welcome-message">
-            Log in to view your dashboard and manage your expenses.
+            Log in to view your dashboard and manage expenses.
           </p>
         </div>
       </div>
