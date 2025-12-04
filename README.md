@@ -1,73 +1,85 @@
-# React + TypeScript + Vite
+# 💰 Expense Tracker - Because Money Doesn't Track Itself! 
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+Hey there, fellow human who also struggles with money management! 👋
 
-Currently, two official plugins are available:
+This is a **React + TypeScript + Vite** expense tracker that will (hopefully) help you figure out where all your money goes. Spoiler alert: it's probably coffee and random Amazon purchases. ☕🛒
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Babel](https://babeljs.io/) (or [oxc](https://oxc.rs) when used in [rolldown-vite](https://vite.dev/guide/rolldown)) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+## 🚀 What's This All About?
 
-## React Compiler
+We're building a fancy expense tracker that lets you:
+- ✅ Track income and expenses (revolutionary, I know)
+- ✅ See pretty charts of your financial chaos
+- ✅ Feel guilty about that impulse purchase last week
+- ✅ Switch between light/dark themes (because aesthetics > actual budgeting)
 
-The React Compiler is not enabled on this template because of its impact on dev & build performances. To add it, see [this documentation](https://react.dev/learn/react-compiler/installation).
+## 🛠️ Current Development Status
 
-## Expanding the ESLint configuration
+**Where we are:** Just finished the TransactionForm component! 🎉
 
-If you are developing a production application, we recommend updating the configuration to enable type-aware lint rules:
+**What works:**
+- Dashboard with stats that make you cry
+- Dark/light theme toggle (priorities!)
+- User authentication (fake, but it's something)
+- Beautiful SCSS styling that took way too long
+- TypeScript everywhere because we're not animals
 
-```js
-export default defineConfig([
-  globalIgnores(['dist']),
-  {
-    files: ['**/*.{ts,tsx}'],
-    extends: [
-      // Other configs...
+**What's next:**
+- Modal for the TransactionForm (pop-ups make everything better)
+- Charts that visualize your poor life choices
+- Export to CSV (so you can share your financial disasters)
 
-      // Remove tseslint.configs.recommended and replace with this
-      tseslint.configs.recommendedTypeChecked,
-      // Alternatively, use this for stricter rules
-      tseslint.configs.strictTypeChecked,
-      // Optionally, add this for stylistic rules
-      tseslint.configs.stylisticTypeChecked,
+## 🤓 Tech Stack (AKA The Usual Suspects)
 
-      // Other configs...
-    ],
-    languageOptions: {
-      parserOptions: {
-        project: ['./tsconfig.node.json', './tsconfig.app.json'],
-        tsconfigRootDir: import.meta.dirname,
-      },
-      // other options...
-    },
-  },
-])
+- **React 19** - Because hooks are life
+- **TypeScript** - For when you want to argue with your code
+- **Vite** - Fast like your money disappearing
+- **SCSS** - CSS but with superpowers
+- **Zustand** - State management that doesn't make you cry
+- **localStorage** - The poor man's database
+
+## 🏃‍♂️ Quick Start (Get This Thing Running)
+
+```bash
+# Clone this masterpiece
+git clone [your-repo-url]
+
+# Install dependencies (prepare for npm magic)
+npm install
+
+# Start the dev server (cross your fingers)
+npm run dev
+
+# Marvel at your creation on http://localhost:5174
 ```
 
-You can also install [eslint-plugin-react-x](https://github.com/Rel1cx/eslint-react/tree/main/packages/plugins/eslint-plugin-react-x) and [eslint-plugin-react-dom](https://github.com/Rel1cx/eslint-react/tree/main/packages/plugins/eslint-plugin-react-dom) for React-specific lint rules:
+## 🎭 Features That Actually Work
 
-```js
-// eslint.config.js
-import reactX from 'eslint-plugin-react-x'
-import reactDom from 'eslint-plugin-react-dom'
+- **Responsive Design**: Works on your phone, tablet, and that ancient laptop
+- **Theme Switching**: Because your eyes deserve options
+- **Form Validation**: Won't let you add negative money (sadly realistic)
+- **Real-time Updates**: See your balance drop in real-time!
 
-export default defineConfig([
-  globalIgnores(['dist']),
-  {
-    files: ['**/*.{ts,tsx}'],
-    extends: [
-      // Other configs...
-      // Enable lint rules for React
-      reactX.configs['recommended-typescript'],
-      // Enable lint rules for React DOM
-      reactDom.configs.recommended,
-    ],
-    languageOptions: {
-      parserOptions: {
-        project: ['./tsconfig.node.json', './tsconfig.app.json'],
-        tsconfigRootDir: import.meta.dirname,
-      },
-      // other options...
-    },
-  },
-])
-```
+## 🔧 For Fellow Developers
+
+Built with modern React patterns:
+- Functional components everywhere
+- Custom hooks for theme management
+- Zustand for global state (Redux who?)
+- SCSS modules because CSS-in-JS is still scary
+- TypeScript interfaces that actually make sense
+
+## 🐛 Known Issues
+
+- No actual bank integration (feature, not bug)
+- Can't automatically add money to your account (working on it)
+- May cause existential crisis when viewing spending habits
+
+## 📝 Contributing
+
+Found a bug? Have a feature idea? Want to add cryptocurrency tracking? 
+
+Create an issue or submit a PR! Just remember: this is a safe space where we don't judge each other's spending habits. 🤗
+
+---
+
+*Made with ❤️ and way too much coffee by someone who definitely needs to use this app themselves.*
