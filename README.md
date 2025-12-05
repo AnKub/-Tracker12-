@@ -14,7 +14,7 @@ We're building a fancy expense tracker that lets you:
 
 ## 🛠️ Current Development Status
 
-**Where we are:** Just finished the TransactionForm component! 🎉
+
 
 **What works:**
 - Dashboard with stats that make you cry
