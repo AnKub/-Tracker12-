@@ -1,0 +1,76 @@
+.quick-actions {
+  background-color: var(--surface-color);
+  border-radius: 12px;
+  padding: 1.5rem;
+  margin-bottom: 2rem;
+
+  &__title {
+    margin: 0 0 1rem 0;
+    color: var(--text-primary);
+    font-size: 1.125rem;
+    font-weight: 600;
+  }
+
+  &__buttons {
+    display: flex;
+    gap: 1rem;
+    
+    @media (max-width: 568px) {
+      flex-direction: column;
+    }
+  }
+
+  &__btn {
+    flex: 1;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 0.5rem;
+    padding: 1rem 1.5rem;
+    border: none;
+    border-radius: 8px;
+    font-weight: 500;
+    cursor: pointer;
+    transition: all 0.2s ease;
+    
+    &:hover {
+      transform: translateY(-1px);
+      box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+    }
+
+    &:active {
+      transform: translateY(0);
+    }
+
+    &--income {
+      background-color: var(--success-color);
+      color: white;
+      
+      &:hover {
+        background-color: var(--success-hover);
+      }
+    }
+
+    &--expense {
+      background-color: var(--danger-color);
+      color: white;
+      
+      &:hover {
+        background-color: var(--danger-hover);
+      }
+    }
+  }
+
+  &__btn-icon {
+    font-size: 1.25rem;
+    font-weight: bold;
+  }
+
+  &__btn-text {
+    font-size: 0.875rem;
+    
+    @media (max-width: 568px) {
+      font-size: 1rem;
+    }
+  }
+}
