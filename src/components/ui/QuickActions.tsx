@@ -2,7 +2,7 @@ import React, {useState} from 'react';
 import './QuickActions.scss';
 import { TransactionModal} from './TransactionModal';
 
-interface QuickActions{
+interface QuickActionsProps {
 className?: string;
 }
 
