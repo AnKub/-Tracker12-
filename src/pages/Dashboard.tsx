@@ -1,5 +1,7 @@
 import React, { useEffect } from 'react';
 import { useExpenseStore } from '../store/useExpenseStore';
+import {QuickActions} from '../components/ui/QuickActions'; 
+import { ExpenseChart } from '../components/charts/ExpenseChart'; 
 import './Dashboard.scss';
 
 export const Dashboard: React.FC = () => {
@@ -22,10 +24,10 @@ export const Dashboard: React.FC = () => {
     .reduce((sum, t) => sum + t.amount, 0);
 
   const balance = totalIncome - totalExpense;
-
   const recentTransactions = transactions
-    .sort((a, b) => new Date(b.createdAt).getTime() - new Date(a.createdAt).getTime())
-    .slice(0, 5);
+  .slice(0,5)
+  .sort((a,b)=> new Date(b.date).getTime() - new Date(a.date).getTime());
+
 
   if (!user) {
     return (

@@ -6,6 +6,28 @@
   flex-direction: column;
   gap: $spacing-2xl;
 
+     &__content {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 2rem;
+    margin-top: 2rem;
+
+    @media (max-width: 968px) {
+      grid-template-columns: 1fr;
+      gap: 1.5rem;
+    }
+  }
+
+  &__chart-section {
+    display: flex;
+    flex-direction: column;
+  }
+
+  &__transactions-section {
+    display: flex;
+    flex-direction: column;
+  }
+
   &__header {
     margin-bottom: $spacing-lg;
   }
