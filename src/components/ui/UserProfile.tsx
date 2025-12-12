@@ -31,6 +31,12 @@ export const UserProfile: React.FC <UserProfile> = ({isOpen, onClose})=> {
   };
 
   const handleCancel = () => {
-    
-  }
+    setFormData({
+      name: user?.name || '',
+      email: user?.email || '',
+      currency: user?.currency || 'UAH'
+    });
+    setIsEditing(false);
+  };
+  if (!isOpen || !user) return null;
 }
