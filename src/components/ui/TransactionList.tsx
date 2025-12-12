@@ -48,4 +48,45 @@ export const TransactionList: React.FC<TransactionListProps> =({
 
     return limit? result.slice(0, limit) : result;
   }, [transactions, filter, sortBy, sortOrder, limit]);
-}
+
+    const handleFilterChange = (newFilter: FilterType) => {
+      setFilter(newFilter);
+    };
+    const handleSortChange = (newSortBy: SortType) => {
+      if(newSortBy === sortBy) {
+        setSortOrder(sortOrder === 'asc' ? 'desc' : 'asc');
+      }else{
+        setSortBy(newSortBy);
+        setSortOrder('asc')
+      }
+    };
+
+    const formatCurrency = (amount: number)=> {
+        return `₴${amount.toLocaleString()}`;
+    };
+
+   const formatDate = (date: Date) => {
+    return new Date(date).toLocaleDateString('uk-UA', {
+      day: '2-digit',
+      month: 'short',
+      year: 'numeric'
+    });
+  };
+
+    return (
+    <div className={`transaction-list ${className}`}>
+      {showFilters && (
+        <div className="transaction-list__filters">
+          <div className="filter-buttons">
+            {(['all', 'income', 'expense'] as FilterType[]).map(filterType => (
+              <button
+                key={filterType}
+                onClick={() => handleFilterChange(filterType)}
+                className={`filter-btn ${filter === filterType ? 'filter-btn--active' : ''}`}
+              >
+                {filterType === 'all' ? 'All' : filterType === 'income' ? 'Income' : 'Expense'}
+              </button>
+            ))}
+          </div>
+        </div>
+      )}
