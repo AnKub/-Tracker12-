@@ -1,7 +1,6 @@
-import React, {useState, useMemo} from 'react';
-import './TransactionsList.scss';
-import {useExpenseStore} from '../../store/useExpenseStore';
-import type {Transaction} from '../../types';
+import React, { useState, useMemo } from 'react';
+import './TransactionList.scss';
+import { useExpenseStore } from '../../store/useExpenseStore';
 
 interface TransactionListProps {
 limit?: number;
@@ -90,3 +89,57 @@ export const TransactionList: React.FC<TransactionListProps> =({
           </div>
         </div>
       )}
+
+      <div className="transaction-list__content">
+        {filteredAndSortedTransactions.length === 0 ? (
+          <div className="transaction-list__empty">
+            <p>No transactions found</p>
+          </div>
+        ) : (
+          <div className="transaction-list__table">
+            <div className="transaction-list__header">
+              <button 
+                className={`sort-btn ${sortBy === 'date' ? 'sort-btn--active' : ''}`}
+                onClick={() => handleSortChange('date')}
+              >
+                Date {sortBy === 'date' && (sortOrder === 'asc' ? '↑' : '↓')}
+              </button>
+              <button 
+                className={`sort-btn ${sortBy === 'category' ? 'sort-btn--active' : ''}`}
+                onClick={() => handleSortChange('category')}
+              >
+                Category {sortBy === 'category' && (sortOrder === 'asc' ? '↑' : '↓')}
+              </button>
+              <span>Description</span>
+              <button 
+                className={`sort-btn ${sortBy === 'amount' ? 'sort-btn--active' : ''}`}
+                onClick={() => handleSortChange('amount')}
+              >
+                Amount {sortBy === 'amount' && (sortOrder === 'asc' ? '↑' : '↓')}
+              </button>
+            </div>
+            
+            <div className="transaction-list__items">
+              {filteredAndSortedTransactions.map(transaction => (
+                <div key={transaction.id} className="transaction-item">
+                  <div className="transaction-item__date">
+                    {formatDate(transaction.date)}
+                  </div>
+                  <div className="transaction-item__category">
+                    {transaction.category}
+                  </div>
+                  <div className="transaction-item__description">
+                    {transaction.description}
+                  </div>
+                  <div className={`transaction-item__amount transaction-item__amount--${transaction.type}`}>
+                    {transaction.type === 'income' ? '+' : '-'}{formatCurrency(transaction.amount)}
+                  </div>
+                </div>
+              ))}
+            </div>
+          </div>
+        )}
+      </div>
+    </div>
+  );
+};
