@@ -15,6 +15,7 @@ interface ExpenseStoreActions {
   updateTransaction: (id: string, updates: Partial<Transaction>) => void;
   deleteTransaction: (id: string) => void;
   setUser: (user: User | null) => void;
+  updateUser: (updates: Partial<User>) => void;
   clearError: () => void;
 }
 type ExpenseStoreState = ExpenseStore & ExpenseStoreActions;
@@ -93,6 +94,18 @@ setUser: (user) => {
   } else{
     userStorage.clear();
   }
+},
+
+updateUser: (updates) => {
+  const currentUser = get().user;
+  if (!currentUser) {
+    set({error: 'No user to update'});
+    return;
+  }
+
+  const updatedUser = { ...currentUser, ...updates };
+  set({ user: updatedUser, error: null });
+  userStorage.setCurrent(updatedUser);
 },
 
 clearError: () => {
