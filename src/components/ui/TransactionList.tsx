@@ -15,7 +15,7 @@ type SortOrder = 'asc' | 'desc';
 
 export const TransactionList: React.FC<TransactionListProps> =({
   limit,
-  showFilters = true,
+  showFilters = false,
   className = ''
 }) => {
   const {transactions} = useExpenseStore();
