@@ -1,153 +1,153 @@
-// @import '../../styles/variables';
-// @import '../../styles/mixins';
+@import '../../styles/variables';
+@import '../../styles/mixins';
 
-// .header {
-//   background: $light-card;
-//   border-bottom: 1px solid $light-border;
-//   box-shadow: $box-shadow-sm;
-//   transition: background-color $transition-normal, border-color $transition-normal;
+.header {
+  background: $light-card;
+  border-bottom: 1px solid $light-border;
+  box-shadow: $box-shadow-sm;
+  transition: background-color $transition-normal, border-color $transition-normal;
   
-//   .dark & {
-//     background: $dark-card;
-//     border-color: $dark-border;
-//   }
+  .dark & {
+    background: $dark-card;
+    border-color: $dark-border;
+  }
 
-//   &__container {
-//     @include container;
-//   }
+  &__container {
+    @include container;
+  }
 
-//   &__content {
-//     @include flex-between;
-//     height: 4rem;
-//   }
+  &__content {
+    @include flex-between;
+    height: 4rem;
+  }
 
-//   &__brand {
-//     @include flex-center;
-//     gap: $spacing-md;
-//   }
+  &__brand {
+    @include flex-center;
+    gap: $spacing-md;
+  }
 
-//   &__logo {
-//     font-size: 1.5rem;
-//   }
+  &__logo {
+    font-size: 1.5rem;
+  }
 
-//   &__title {
-//     font-size: 1.25rem;
-//     font-weight: 700;
-//     @include text-primary;
-//     margin: 0;
-//   }
+  &__title {
+    font-size: 1.25rem;
+    font-weight: 700;
+    @include text-primary;
+    margin: 0;
+  }
 
-//   &__nav {
-//     display: none;
-//     gap: $spacing-xl;
+  &__nav {
+    display: none;
+    gap: $spacing-xl;
     
-//     @media (min-width: 768px) {
-//       display: flex;
-//     }
-//   }
+    @media (min-width: 768px) {
+      display: flex;
+    }
+  }
 
-//   &__actions {
-//     display: flex;
-//     align-items: center;
-//     gap: $spacing-md;
-//   }
-// }
+  &__actions {
+    display: flex;
+    align-items: center;
+    gap: $spacing-md;
+  }
+}
 
-// // Navigation buttons
-// .nav-btn {
-//   @include text-secondary;
-//   font-size: 0.875rem;
-//   font-weight: 500;
-//   padding: $spacing-sm $spacing-md;
-//   border-radius: $border-radius-md;
-//   transition: all $transition-fast;
-//   background: none;
-//   border: none;
-//   cursor: pointer;
+// Navigation buttons
+.nav-btn {
+  @include text-secondary;
+  font-size: 0.875rem;
+  font-weight: 500;
+  padding: $spacing-sm $spacing-md;
+  border-radius: $border-radius-md;
+  transition: all $transition-fast;
+  background: none;
+  border: none;
+  cursor: pointer;
 
-//   &:hover {
-//     color: $primary-color;
-//     background: rgba($primary-color, 0.1);
-//   }
-// }
+  &:hover {
+    color: $primary-color;
+    background: rgba($primary-color, 0.1);
+  }
+}
 
-// // Theme toggle
-// .theme-toggle {
-//   padding: $spacing-sm;
-//   border-radius: $border-radius-md;
-//   background: $light-background;
-//   border: 1px solid $light-border;
-//   font-size: 1.25rem;
-//   cursor: pointer;
-//   transition: all $transition-fast;
+// Theme toggle
+.theme-toggle {
+  padding: $spacing-sm;
+  border-radius: $border-radius-md;
+  background: $light-background;
+  border: 1px solid $light-border;
+  font-size: 1.25rem;
+  cursor: pointer;
+  transition: all $transition-fast;
   
-//   .dark & {
-//     background: lighten($dark-background, 5%);
-//     border-color: $dark-border;
-//   }
+  .dark & {
+    background: lighten($dark-background, 5%);
+    border-color: $dark-border;
+  }
 
-//   &:hover {
-//     background: darken($light-background, 5%);
+  &:hover {
+    background: darken($light-background, 5%);
     
-//     .dark & {
-//       background: lighten($dark-background, 10%);
-//     }
-//   }
-// }
+    .dark & {
+      background: lighten($dark-background, 10%);
+    }
+  }
+}
 
-// // User section
-// .user-section {
-//   display: flex;
-//   align-items: center;
-//   gap: $spacing-md;
-// }
+// User section
+.user-section {
+  display: flex;
+  align-items: center;
+  gap: $spacing-md;
+}
 
-// .user-greeting {
-//   font-size: 0.875rem;
-//   @include text-secondary;
-// }
+.user-greeting {
+  font-size: 0.875rem;
+  @include text-secondary;
+}
 
-// .user-name {
-//   font-weight: 500;
-//   @include text-primary;
-// }
+.user-name {
+  font-weight: 500;
+  @include text-primary;
+}
 
-// // Auth buttons
-// .auth-buttons {
-//   display: flex;
-//   gap: $spacing-sm;
-// }
+// Auth buttons
+.auth-buttons {
+  display: flex;
+  gap: $spacing-sm;
+}
 
-// // Button variants
-// .btn {
-//   @include button-base;
+// Button variants
+.btn {
+  @include button-base;
   
-//   &--sm {
-//     padding: $spacing-xs $spacing-sm;
-//     font-size: 0.875rem;
-//   }
+  &--sm {
+    padding: $spacing-xs $spacing-sm;
+    font-size: 0.875rem;
+  }
   
-//   &--primary {
-//     @include button-primary;
-//   }
+  &--primary {
+    @include button-primary;
+  }
   
-//   &--error {
-//     @include button-error;
-//   }
+  &--error {
+    @include button-error;
+  }
   
-//   &--outline {
-//     background: transparent;
-//     border: 1px solid $primary-color;
-//     color: $primary-color;
+  &--outline {
+    background: transparent;
+    border: 1px solid $primary-color;
+    color: $primary-color;
     
-//     &:hover:not(:disabled) {
-//       background: $primary-color;
-//       color: white;
-//     }
+    &:hover:not(:disabled) {
+      background: $primary-color;
+      color: white;
+    }
     
-//     .dark & {
-//       border-color: lighten($primary-color, 20%);
-//       color: lighten($primary-color, 20%);
-//     }
-//   }
-// }
+    .dark & {
+      border-color: lighten($primary-color, 20%);
+      color: lighten($primary-color, 20%);
+    }
+  }
+}
