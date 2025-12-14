@@ -25,3 +25,21 @@ const DEFAULT_CATEGORIES = [
   { name: 'Freelance', icon: '💻', color: '#DDA0DD', type: 'income' as const },
 ];
 
+export const CategoryManager: React.FC<CategoryManagerProps> =({
+  isOpen,
+  onClose,
+  onCategorySelect
+}) => {
+  const {user} = useExpenseStore();
+  const [categories, setCategories] = useState<Category[]>([]);
+  const [showForm, setShowForm] = useState(false);
+  const [editingCategory, setEditingCategory] = useState<Category|null>(null);
+  const [formData, setFormData] = useState<CategoryFormData>({
+    name:'',
+     icon: '📝',
+    color: '#FF6B6B',
+    type: 'expense'
+  });
+
+
+}
