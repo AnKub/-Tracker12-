@@ -1,12 +1,12 @@
 .quick-actions {
-  background-color: var(--surface-color);
+  @include card;
   border-radius: 12px;
   padding: 1.5rem;
   margin-bottom: 2rem;
 
   &__title {
     margin: 0 0 1rem 0;
-    color: var(--text-primary);
+    @include text-primary;
     font-size: 1.125rem;
     font-weight: 600;
   }
@@ -43,20 +43,20 @@
     }
 
     &--income {
-      background-color: var(--success-color);
+      background-color: $success-color;
       color: white;
       
       &:hover {
-        background-color: var(--success-hover);
+        background-color: darken($success-color, 10%);
       }
     }
 
     &--expense {
-      background-color: var(--danger-color);
+      background-color: $error-color;
       color: white;
       
       &:hover {
-        background-color: var(--danger-hover);
+        background-color: darken($error-color, 10%);
       }
     }
   }

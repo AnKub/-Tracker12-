@@ -4,7 +4,7 @@
 .header {
   background: $light-card;
   border-bottom: 1px solid $light-border;
-  box-shadow: $box-shadow-sm;
+  box-shadow: $shadow-sm;
   transition: background-color $transition-normal, border-color $transition-normal;
   
   .dark & {
