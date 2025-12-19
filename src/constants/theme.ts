@@ -38,7 +38,6 @@ export const getCurrentTheme = (): ThemeName => {
 
 export const setTheme = (themeName: ThemeName) => {
   localStorage.setItem('theme', themeName);
-  // Додаємо клас до html елемента для dark mode
   if (themeName === 'dark') {
     document.documentElement.classList.add('dark');
   } else {

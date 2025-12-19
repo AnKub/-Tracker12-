@@ -90,3 +90,23 @@ select:focus-visible {
 .expense-color {
   color: $expense-color !important;
 }
+
+:root {
+  --surface-color: #{$light-card};
+  --border-color: #{$light-border};
+  --text-primary: #{$light-text};
+  --text-secondary: #{$light-text-secondary};
+  --background-color: #{$light-background};
+  --primary-color: #{$primary-color};
+  --primary-hover: #{$primary-hover};
+  --success-color: #{$success-color};
+  --danger-color: #{$error-color};
+}
+
+.dark {
+  --surface-color: #{$dark-card};
+  --border-color: #{$dark-border};
+  --text-primary: #{$dark-text};
+  --text-secondary: #{$dark-text-secondary};
+  --background-color: #{$dark-background};
+}

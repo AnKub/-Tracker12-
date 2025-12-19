@@ -2,13 +2,17 @@
 @import '../../styles/mixins';
 
 .transaction-list {
-  background-color: var(--surface-color);
+  @include card;
   border-radius: 12px;
   overflow: hidden;
 
   &__filters {
     padding: 1rem 1.5rem;
-    border-bottom: 1px solid var(--border-color);
+    border-bottom: 1px solid $light-border;
+    
+    .dark & {
+      border-color: $dark-border;
+    }
   }
 
   .filter-buttons {
@@ -18,24 +22,28 @@
 
   .filter-btn {
     padding: 0.5rem 1rem;
-    border: 1px solid var(--border-color);
+    border: 1px solid $light-border;
     border-radius: 6px;
     background-color: transparent;
-    color: var(--text-secondary);
+    @include text-secondary;
     cursor: pointer;
-    transition: all 0.2s ease;
+    transition: all $transition-fast;
     font-size: 0.875rem;
+    
+    .dark & {
+      border-color: $dark-border;
+    }
 
     &:hover {
-      background-color: var(--primary-color);
+      background-color: $primary-color;
       color: white;
-      border-color: var(--primary-color);
+      border-color: $primary-color;
     }
 
     &--active {
-      background-color: var(--primary-color);
+      background-color: $primary-color;
       color: white;
-      border-color: var(--primary-color);
+      border-color: $primary-color;
     }
   }
 
@@ -46,7 +54,7 @@
   &__empty {
     text-align: center;
     padding: 2rem;
-    color: var(--text-secondary);
+    @include text-secondary;
     font-style: italic;
   }
 
@@ -60,8 +68,12 @@
     grid-template-columns: 120px 1fr 2fr 120px;
     gap: 1rem;
     padding: 0.75rem 0;
-    border-bottom: 2px solid var(--border-color);
+    border-bottom: 2px solid $light-border;
     margin-bottom: 1rem;
+    
+    .dark & {
+      border-color: $dark-border;
+    }
 
     @media (max-width: 768px) {
       grid-template-columns: 1fr 1fr;
@@ -75,7 +87,7 @@
 
     span {
       font-weight: 600;
-      color: var(--text-primary);
+      @include text-primary;
       font-size: 0.875rem;
       display: flex;
       align-items: center;
@@ -86,20 +98,20 @@
     background: none;
     border: none;
     font-weight: 600;
-    color: var(--text-secondary);
+    @include text-secondary;
     font-size: 0.875rem;
     cursor: pointer;
     display: flex;
     align-items: center;
-    transition: color 0.2s ease;
+    transition: color $transition-fast;
     text-align: left;
 
     &:hover {
-      color: var(--primary-color);
+      color: $primary-color;
     }
 
     &--active {
-      color: var(--primary-color);
+      color: $primary-color;
     }
   }
 
@@ -115,12 +127,20 @@
   grid-template-columns: 120px 1fr 2fr 120px;
   gap: 1rem;
   padding: 1rem;
-  background-color: var(--background-color);
+  background-color: $light-background;
   border-radius: 8px;
-  transition: all 0.2s ease;
+  transition: all $transition-fast;
+  
+  .dark & {
+    background-color: lighten($dark-background, 5%);
+  }
 
   &:hover {
-    background-color: var(--border-color);
+    background-color: $light-border;
+    
+    .dark & {
+      background-color: $dark-border;
+    }
   }
 
   @media (max-width: 768px) {
@@ -141,21 +161,21 @@
 
   &__date {
     font-size: 0.875rem;
-    color: var(--text-secondary);
+    @include text-secondary;
     display: flex;
     align-items: center;
   }
 
   &__category {
     font-size: 0.875rem;
-    color: var(--text-primary);
+    @include text-primary;
     display: flex;
     align-items: center;
     text-transform: capitalize;
   }
 
   &__description {
-    color: var(--text-primary);
+    @include text-primary;
     display: flex;
     align-items: center;
     font-weight: 500;
@@ -169,11 +189,11 @@
     justify-content: flex-end;
 
     &--income {
-      color: var(--success-color);
+      color: $success-color;
     }
 
     &--expense {
-      color: var(--danger-color);
+      color: $error-color;
     }
   }
 }

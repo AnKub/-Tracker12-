@@ -14,13 +14,17 @@
   z-index: 1000;
 
   &__content {
-    background-color: var(--surface-color);
+    background-color: $light-card;
     border-radius: 12px;
     width: 90%;
     max-width: 600px;
     max-height: 90vh;
     overflow: auto;
     box-shadow: 0 10px 25px rgba(0, 0, 0, 0.2);
+    
+    .dark & {
+      background-color: $dark-card;
+    }
   }
 
   &__header {
@@ -28,11 +32,15 @@
     justify-content: space-between;
     align-items: center;
     padding: 1.5rem;
-    border-bottom: 1px solid var(--border-color);
+    border-bottom: 1px solid $light-border;
+    
+    .dark & {
+      border-color: $dark-border;
+    }
 
     h2 {
       margin: 0;
-      color: var(--text-primary);
+      @include text-primary;
       font-size: 1.25rem;
     }
   }
@@ -42,11 +50,12 @@
     border: none;
     font-size: 1.5rem;
     cursor: pointer;
-    color: var(--text-secondary);
+    @include text-secondary;
     padding: 0.25rem;
+    transition: color $transition-fast;
 
     &:hover {
-      color: var(--text-primary);
+      @include text-primary;
     }
   }
 
@@ -59,30 +68,26 @@
   }
 
   &__add-btn {
-    background-color: var(--primary-color);
-    color: white;
-    border: none;
+    @include button-primary;
     padding: 0.75rem 1.5rem;
     border-radius: 8px;
-    cursor: pointer;
     font-weight: 500;
-    transition: background-color 0.2s ease;
-
-    &:hover {
-      background-color: var(--primary-hover);
-    }
   }
 }
 
 .category-form {
-  background-color: var(--background-color);
+  background-color: $light-background;
   padding: 1.5rem;
   border-radius: 8px;
   margin-bottom: 1.5rem;
+  
+  .dark & {
+    background-color: lighten($dark-background, 5%);
+  }
 
   h3 {
     margin: 0 0 1rem 0;
-    color: var(--text-primary);
+    @include text-primary;
     font-size: 1.1rem;
   }
 
@@ -92,24 +97,14 @@
     label {
       display: block;
       font-weight: 500;
-      color: var(--text-primary);
+      @include text-primary;
       margin-bottom: 0.5rem;
       font-size: 0.875rem;
     }
 
     input, select {
-      width: 100%;
-      padding: 0.75rem;
-      border: 1px solid var(--border-color);
-      border-radius: 6px;
-      background-color: var(--surface-color);
-      color: var(--text-primary);
+      @include input-base;
       font-size: 0.875rem;
-
-      &:focus {
-        outline: none;
-        border-color: var(--primary-color);
-      }
 
       &[type="color"] {
         height: 40px;
@@ -135,21 +130,24 @@
     }
 
     .save-btn {
-      background-color: var(--success-color);
-      color: white;
-
-      &:hover {
-        background-color: var(--success-hover);
-      }
+      @include button-success;
     }
 
     .cancel-btn {
-      background-color: var(--border-color);
-      color: var(--text-primary);
+      background-color: $light-border;
+      @include text-primary;
+
+      .dark & {
+        background-color: $dark-border;
+      }
 
       &:hover {
-        background-color: var(--text-secondary);
-        color: var(--surface-color);
+        @include text-secondary;
+        background-color: darken($light-border, 10%);
+        
+        .dark & {
+          background-color: lighten($dark-border, 10%);
+        }
       }
     }
   }
@@ -166,16 +164,22 @@
 }
 
 .category-card {
-  background-color: var(--surface-color);
+  background-color: $light-card;
   border-radius: 8px;
   padding: 1rem;
   cursor: pointer;
-  transition: all 0.2s ease;
+  transition: all $transition-fast;
   position: relative;
+  border: 1px solid $light-border;
+  
+  .dark & {
+    background-color: $dark-card;
+    border-color: $dark-border;
+  }
 
   &:hover {
     transform: translateY(-2px);
-    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+    box-shadow: $shadow-lg;
   }
 
   &__icon {
@@ -186,7 +190,7 @@
   &__info {
     h4 {
       margin: 0 0 0.25rem 0;
-      color: var(--text-primary);
+      @include text-primary;
       font-size: 1rem;
     }
   }
@@ -198,7 +202,7 @@
     display: flex;
     gap: 0.25rem;
     opacity: 0;
-    transition: opacity 0.2s ease;
+    transition: opacity $transition-fast;
 
     button {
       background: none;
@@ -207,10 +211,14 @@
       cursor: pointer;
       font-size: 0.875rem;
       border-radius: 4px;
-      transition: background-color 0.2s ease;
+      transition: background-color $transition-fast;
 
       &:hover {
-        background-color: var(--border-color);
+        background-color: $light-border;
+        
+        .dark & {
+          background-color: $dark-border;
+        }
       }
     }
   }
@@ -228,12 +236,12 @@
   text-transform: uppercase;
 
   &--income {
-    background-color: var(--success-color);
+    background-color: $success-color;
     color: white;
   }
 
   &--expense {
-    background-color: var(--danger-color);
+    background-color: $error-color;
     color: white;
   }
 }

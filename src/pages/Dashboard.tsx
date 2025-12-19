@@ -1,7 +1,9 @@
-import React, { useEffect } from 'react';
+import React, { useEffect, useState } from 'react';
 import { useExpenseStore } from '../store/useExpenseStore';
-import {QuickActions} from '../components/ui/QuickActions'; 
-import { ExpenseChart } from '../components/charts/ExpenseChart'; 
+import { QuickActions } from '../components/ui/QuickActions'; 
+import { ExpenseChart } from '../components/charts/ExpenseChart';
+import { TransactionList } from '../components/ui/TransactionList';
+import { CategoryManager } from '../components/ui/CategoryManager';
 import './Dashboard.scss';
 
 export const Dashboard: React.FC = () => {
@@ -10,6 +12,8 @@ export const Dashboard: React.FC = () => {
     loadTransactions: state.loadTransactions,
     user: state.user
   }));
+  
+  const [showCategoryManager, setShowCategoryManager] = useState(false);
 
   useEffect(() => {
     loadTransactions();
@@ -137,6 +141,23 @@ export const Dashboard: React.FC = () => {
           </div>
         )}
       </div>
+      <div className="dashboard__section">
+            <div className="dashboard__section-header">
+              <h2 className="dashboard__section-title">All Transactions</h2>
+              <button 
+                onClick={() => setShowCategoryManager(true)}
+                className="btn btn--outline btn--sm"
+              >
+                📝 Manage Categories
+              </button>
+            </div>
+            <TransactionList showFilters={true} />
+          </div>
+
+          <CategoryManager 
+            isOpen={showCategoryManager}
+            onClose={() => setShowCategoryManager(false)}
+          />
     </div>
   );
 };
