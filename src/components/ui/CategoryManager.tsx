@@ -57,6 +57,38 @@ export const CategoryManager: React.FC<CategoryManagerProps> = ({
     }
   }, [isOpen, user]);
 
+  React.useEffect(() => {
+    const handleEscape = (e: KeyboardEvent) => {
+      if (e.key === 'Escape' && isOpen) {
+        onClose();
+      }
+    };
+
+    if (isOpen) {
+      document.addEventListener('keydown', handleEscape);
+      document.body.style.overflow = 'hidden';
+    }
+
+    return () => {
+      document.removeEventListener('keydown', handleEscape);
+      document.body.style.overflow = 'unset';
+    };
+  }, [isOpen]);
+
+
+  React.useEffect(() => {
+    if (!isOpen) {
+      setShowForm(false);
+      setEditingCategory(null);
+      setFormData({
+        name: '',
+        icon: '📝',
+        color: '#FF6B6B',
+        type: 'expense'
+      });
+    }
+  }, [isOpen]);
+
   const handleInputChange = (e: React.ChangeEvent<HTMLInputElement | HTMLSelectElement>) => {
     setFormData(prev => ({
       ...prev,
@@ -121,8 +153,20 @@ export const CategoryManager: React.FC<CategoryManagerProps> = ({
 
   if (!isOpen) return null;
 
+  const handleBackdropClick = (e: React.MouseEvent<HTMLDivElement>) => {
+    if (e.target === e.currentTarget) {
+      if (showForm && (formData.name.trim() || editingCategory)) {
+        if (window.confirm('Unsaved changes will be lost. Are you sure?')) {
+          onClose();
+        }
+      } else {
+        onClose();
+      }
+    }
+  };
+
   return (
-    <div className="category-manager" onClick={onClose}>
+    <div className="category-manager" onClick={handleBackdropClick}>
       <div className="category-manager__content" onClick={(e) => e.stopPropagation()}>
         <div className="category-manager__header">
           <h2>Manage Categories</h2>

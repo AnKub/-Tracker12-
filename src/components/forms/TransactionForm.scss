@@ -1,5 +1,6 @@
-@import '../../styles/variables';
-@import '../../styles/mixins';
+@use 'sass:color';
+@use '../../styles/variables' as *;
+@use '../../styles/mixins' as *;
 
 .transaction-form {
   @include card;
@@ -50,10 +51,10 @@
   }
 
   &::placeholder {
-    color: $light-secondary;
+    color: $light-text-secondary;
     
     .dark & {
-      color: $dark-secondary;
+      color: $dark-text-secondary;
     }
   }
 }

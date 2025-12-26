@@ -1,5 +1,6 @@
-@import '../../styles/variables';
-@import '../../styles/mixins';
+@use 'sass:color';
+@use '../../styles/variables' as *;
+@use '../../styles/mixins' as *;
 
 .category-manager {
   position: fixed;
@@ -84,7 +85,7 @@
   margin-bottom: 1.5rem;
   
   .dark & {
-    background-color: lighten($dark-background, 5%);
+    background-color: color.adjust($dark-background, $lightness: 5%);
   }
 
   h3 {
@@ -322,7 +323,7 @@
       border-color: $primary-color;
 
       &:hover {
-        background-color: darken($primary-color, 10%);
+        background-color: color.adjust($primary-color, $lightness: -10%);
       }
     }
   }
@@ -399,7 +400,7 @@
       color: white;
 
       &:hover {
-        background-color: darken($error-color, 10%);
+        background-color: color.adjust($error-color, $lightness: -10%);
       }
     }
 
@@ -412,10 +413,10 @@
       }
 
       &:hover {
-        background-color: darken($light-border, 10%);
+        background-color: color.adjust($light-border, $lightness: -10%);
         
         .dark & {
-          background-color: lighten($dark-border, 10%);
+          background-color: color.adjust($dark-border, $lightness: 10%);
         }
       }
     }

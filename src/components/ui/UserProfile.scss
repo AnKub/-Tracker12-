@@ -1,3 +1,7 @@
+@use 'sass:color';
+@use '../../styles/variables' as *;
+@use '../../styles/mixins' as *;
+
 .user-profile {
   position: fixed;
   top: 0;
@@ -62,7 +66,7 @@
     width: 80px;
     height: 80px;
     border-radius: 50%;
-    background: linear-gradient(135deg, $primary-color, lighten($primary-color, 20%));
+    background: linear-gradient(135deg, $primary-color, color.adjust($primary-color, $lightness: 20%));
     display: flex;
     align-items: center;
     justify-content: center;
@@ -136,10 +140,10 @@
 
     &:hover {
       @include text-secondary;
-      background-color: darken($light-border, 10%);
+      background-color: color.adjust($light-border, $lightness: -10%);
       
       .dark & {
-        background-color: lighten($dark-border, 10%);
+        background-color: color.adjust($dark-border, $lightness: 10%);
       }
     }
   }

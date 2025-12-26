@@ -1,5 +1,6 @@
-@import '../styles/variables';
-@import '../styles/mixins';
+@use 'sass:color';
+@use '../styles/variables' as *;
+@use '../styles/mixins' as *;
 
 .dashboard {
   display: flex;
@@ -168,7 +169,7 @@
   transition: background-color $transition-normal;
   
   .dark & {
-    background: lighten($dark-background, 5%);
+    background: color.adjust($dark-background, $lightness: 5%);
   }
 
   &__info {

@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from 'react';
+import React, { useEffect, useState, useCallback } from 'react';
 import { useExpenseStore } from '../store/useExpenseStore';
 import { QuickActions } from '../components/ui/QuickActions'; 
 import { ExpenseChart } from '../components/charts/ExpenseChart';
@@ -7,13 +7,20 @@ import { CategoryManager } from '../components/ui/CategoryManager';
 import './Dashboard.scss';
 
 export const Dashboard: React.FC = () => {
-  const { transactions, loadTransactions, user } = useExpenseStore(state => ({
-    transactions: state.transactions,
-    loadTransactions: state.loadTransactions,
-    user: state.user
-  }));
+  const transactions = useExpenseStore(state => state.transactions);
+  const loadTransactions = useExpenseStore(state => state.loadTransactions);
+  const user = useExpenseStore(state => state.user);
   
   const [showCategoryManager, setShowCategoryManager] = useState(false);
+
+  // Стабільна функція закриття
+  const handleCloseCategoryManager = useCallback(() => {
+    setShowCategoryManager(false);
+  }, []);
+
+  const handleOpenCategoryManager = useCallback(() => {
+    setShowCategoryManager(true);
+  }, []);
 
   useEffect(() => {
     loadTransactions();
@@ -145,7 +152,7 @@ export const Dashboard: React.FC = () => {
             <div className="dashboard__section-header">
               <h2 className="dashboard__section-title">All Transactions</h2>
               <button 
-                onClick={() => setShowCategoryManager(true)}
+                onClick={handleOpenCategoryManager}
                 className="btn btn--outline btn--sm"
               >
                 📝 Manage Categories
@@ -156,7 +163,7 @@ export const Dashboard: React.FC = () => {
 
           <CategoryManager 
             isOpen={showCategoryManager}
-            onClose={() => setShowCategoryManager(false)}
+            onClose={handleCloseCategoryManager}
           />
     </div>
   );
