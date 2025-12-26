@@ -6,10 +6,7 @@ import type { Category } from '../../types';
 interface CategoryManagerProps {
   isOpen: boolean;
   onClose: () => void;
-  categories: Category[];
-  onSave: (category: Omit<Category, 'id'>) => void;
-  onUpdate: (id: string, category: Partial<Category>) => void;
-  onDelete: (id: string) => void;
+  onCategorySelect?: (category: string) => void;
 }
 
 interface CategoryFormData {
