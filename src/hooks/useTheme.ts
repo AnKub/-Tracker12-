@@ -7,7 +7,6 @@ export const useTheme = () => {
 
   useEffect(() => {
     setMounted(true);
-    // Встановлюємо початкову тему
     saveTheme(theme);
   }, []);
 
