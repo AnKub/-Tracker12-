@@ -245,3 +245,244 @@
     color: white;
   }
 }
+
+.category-stats {
+  margin-top: 0.5rem;
+  @include text-secondary;
+  font-size: 0.75rem;
+
+  &__count {
+    margin-right: 1rem;
+  }
+
+  &__total {
+    font-weight: 500;
+  }
+}
+
+.category-edit-form {
+  background-color: $light-background;
+  border: 2px solid $primary-color;
+  border-radius: 8px;
+  padding: 1rem;
+  
+  .dark & {
+    background-color: lighten($dark-background, 3%);
+  }
+
+  .form-field {
+    margin-bottom: 0.75rem;
+
+    &:last-child {
+      margin-bottom: 0;
+    }
+  }
+
+  .form-actions {
+    margin-top: 1rem;
+    justify-content: flex-end;
+    
+    .save-btn, .cancel-btn {
+      padding: 0.5rem 1rem;
+      font-size: 0.875rem;
+    }
+  }
+}
+
+.category-delete-confirm {
+  background-color: $light-card;
+  border-radius: 8px;
+  padding: 1.5rem;
+  text-align: center;
+  
+  .dark & {
+    background-color: $dark-card;
+  }
+
+  h3 {
+    margin: 0 0 1rem 0;
+    @include text-primary;
+    color: $error-color;
+  }
+
+  p {
+    margin: 0 0 1.5rem 0;
+    @include text-secondary;
+    line-height: 1.5;
+  }
+
+  .confirm-actions {
+    display: flex;
+    gap: 1rem;
+    justify-content: center;
+
+    button {
+      padding: 0.75rem 1.5rem;
+      border: none;
+      border-radius: 6px;
+      cursor: pointer;
+      font-weight: 500;
+      transition: all 0.2s ease;
+    }
+
+    .delete-btn {
+      background-color: $error-color;
+      color: white;
+
+      &:hover {
+        background-color: darken($error-color, 10%);
+      }
+    }
+
+    .cancel-btn {
+      background-color: $light-border;
+      @include text-primary;
+
+      .dark & {
+        background-color: $dark-border;
+      }
+
+      &:hover {
+        background-color: darken($light-border, 10%);
+        
+        .dark & {
+          background-color: lighten($dark-border, 10%);
+        }
+      }
+    }
+  }
+}
+
+.category-search {
+  margin-bottom: 1.5rem;
+  position: relative;
+
+  input {
+    @include input-base;
+    padding-left: 2.5rem;
+    width: 100%;
+    
+    &::placeholder {
+      @include text-secondary;
+    }
+  }
+
+  &__icon {
+    position: absolute;
+    left: 0.75rem;
+    top: 50%;
+    transform: translateY(-50%);
+    @include text-secondary;
+    font-size: 1rem;
+  }
+}
+
+.category-filters {
+  display: flex;
+  gap: 0.75rem;
+  margin-bottom: 1.5rem;
+  flex-wrap: wrap;
+
+  @media (max-width: 568px) {
+    flex-direction: column;
+  }
+
+  &__filter {
+    padding: 0.5rem 1rem;
+    border: 1px solid $light-border;
+    border-radius: 20px;
+    background-color: $light-card;
+    cursor: pointer;
+    font-size: 0.875rem;
+    font-weight: 500;
+    transition: all $transition-fast;
+    @include text-primary;
+
+    .dark & {
+      background-color: $dark-card;
+      border-color: $dark-border;
+    }
+
+    &:hover {
+      border-color: $primary-color;
+    }
+
+    &--active {
+      background-color: $primary-color;
+      color: white;
+      border-color: $primary-color;
+
+      &:hover {
+        background-color: darken($primary-color, 10%);
+      }
+    }
+  }
+}
+
+.category-empty-state {
+  text-align: center;
+  padding: 3rem 1rem;
+
+  &__icon {
+    font-size: 3rem;
+    @include text-secondary;
+    margin-bottom: 1rem;
+  }
+
+  h3 {
+    margin: 0 0 0.5rem 0;
+    @include text-primary;
+    font-size: 1.1rem;
+  }
+
+  p {
+    margin: 0 0 1.5rem 0;
+    @include text-secondary;
+    line-height: 1.5;
+  }
+
+  button {
+    @include button-primary;
+    padding: 0.75rem 1.5rem;
+    border-radius: 8px;
+    font-weight: 500;
+  }
+}
+
+// Анімації
+@keyframes slideInUp {
+  from {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
+
+.category-manager {
+  animation: fadeIn 0.3s ease-out;
+
+  &__content {
+    animation: slideInUp 0.4s ease-out;
+  }
+}
+    background-color: $success-color;
+    color: white;
+  }
+
+  &--expense {
+    background-color: $error-color;
+    color: white;
+  }
+}
