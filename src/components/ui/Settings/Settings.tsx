@@ -20,8 +20,8 @@ export const Settings: React.FC<SettingsProps> = ({isOpen, onClose}) => {
           <button onClick={onClose} className='settings__close'>x</button>
         </div>
         <div className="settings__body">
-          <div className="settings-item">
-            <span className='settings-item__label'>Dark Theme</span>
+          <div className="setting-item">
+            <span className="setting-item__label">Dark Theme</span>
             <button onClick={toggleTheme}
             className={`toggle-btn ${theme === 'dark'? 'toggle-btn--active': ''}`}
             >

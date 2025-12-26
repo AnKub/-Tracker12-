@@ -4,6 +4,7 @@ import { QuickActions } from '../components/ui/QuickActions';
 import { ExpenseChart } from '../components/charts/ExpenseChart';
 import { TransactionList } from '../components/ui/TransactionList';
 import { CategoryManager } from '../components/ui/CategoryManager';
+import { Settings } from '../components/ui/Settings/Settings';
 import './Dashboard.scss';
 
 export const Dashboard: React.FC = () => {
@@ -12,14 +13,22 @@ export const Dashboard: React.FC = () => {
   const user = useExpenseStore(state => state.user);
   
   const [showCategoryManager, setShowCategoryManager] = useState(false);
+  const [showSettings, setShowSettings] = useState(false);
 
-  // Стабільна функція закриття
   const handleCloseCategoryManager = useCallback(() => {
     setShowCategoryManager(false);
   }, []);
 
   const handleOpenCategoryManager = useCallback(() => {
     setShowCategoryManager(true);
+  }, []);
+
+  const handleCloseSettings = useCallback(() => {
+    setShowSettings(false);
+  }, []);
+
+  const handleOpenSettings = useCallback(() => {
+    setShowSettings(true);
   }, []);
 
   useEffect(() => {
@@ -151,12 +160,20 @@ export const Dashboard: React.FC = () => {
       <div className="dashboard__section">
             <div className="dashboard__section-header">
               <h2 className="dashboard__section-title">All Transactions</h2>
-              <button 
-                onClick={handleOpenCategoryManager}
-                className="btn btn--outline btn--sm"
-              >
-                📝 Manage Categories
-              </button>
+              <div className="dashboard__actions">
+                <button 
+                  onClick={handleOpenSettings}
+                  className="btn btn--outline btn--sm"
+                >
+                  ⚙️ Settings
+                </button>
+                <button 
+                  onClick={handleOpenCategoryManager}
+                  className="btn btn--outline btn--sm"
+                >
+                  📝 Manage Categories
+                </button>
+              </div>
             </div>
             <TransactionList showFilters={true} />
           </div>
@@ -164,6 +181,11 @@ export const Dashboard: React.FC = () => {
           <CategoryManager 
             isOpen={showCategoryManager}
             onClose={handleCloseCategoryManager}
+          />
+
+          <Settings 
+            isOpen={showSettings}
+            onClose={handleCloseSettings}
           />
     </div>
   );
