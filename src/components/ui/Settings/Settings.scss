@@ -60,4 +60,13 @@
     background: $primary-color;
     color: white;
   }
+} 
+.setting-select {
+  @include input-base;
+  min-width: 140px;
+  cursor: pointer;
+  
+  option {
+    @include text-primary;
+  }
 }
