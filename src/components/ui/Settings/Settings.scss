@@ -1,72 +1,72 @@
-// @use '../../../styles/variables' as *;
-// @use '../../../styles/mixins' as *;
+@use '../../../styles/variables' as *;
+@use '../../../styles/mixins' as *;
 
-// .settings {
-//   position: fixed;
-//   top: 0;
-//   left: 0;
-//   right: 0;
-//   bottom: 0;
-//   background-color: rgba(0, 0, 0, 0.5);
-//   display: flex;
-//   align-items: center;
-//   justify-content: center;
-//   z-index: 1000;
+.settings {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background-color: rgba(0, 0, 0, 0.5);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 1000;
 
-//   &__content {
-//     @include card;
-//     width: 400px;
-//     max-width: 90%;
-//   }
+  &__content {
+    @include card;
+    width: 400px;
+    max-width: 90%;
+  }
 
-//   &__header {
-//     @include flex-between;
-//     margin-bottom: 1rem;
-//   }
+  &__header {
+    @include flex-between;
+    margin-bottom: 1rem;
+  }
 
-//   &__close {
-//     background: none;
-//     border: none;
-//     font-size: 1.5rem;
-//     cursor: pointer;
-//   }
+  &__close {
+    background: none;
+    border: none;
+    font-size: 1.5rem;
+    cursor: pointer;
+  }
 
-//   &__body {
-//     display: flex;
-//     flex-direction: column;
-//     gap: 1rem;
-//   }
-// }
+  &__body {
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+  }
+}
 
-// .setting-item {
-//   @include flex-between;
-//   padding: 0.75rem 0;
-//   border-bottom: 1px solid $light-border;
+.setting-item {
+  @include flex-between;
+  padding: 0.75rem 0;
+  border-bottom: 1px solid $light-border;
 
-//   &__label {
-//     font-weight: 500;
-//   }
-// }
+  &__label {
+    font-weight: 500;
+  }
+}
 
-// .toggle-btn {
-//   background: $light-border;
-//   border: none;
-//   padding: 0.5rem;
-//   border-radius: 20px;
-//   cursor: pointer;
-//   font-size: 1rem;
+.toggle-btn {
+  background: $light-border;
+  border: none;
+  padding: 0.5rem;
+  border-radius: 20px;
+  cursor: pointer;
+  font-size: 1rem;
 
-//   &--active {
-//     background: $primary-color;
-//     color: white;
-//   }
-// } 
-// .setting-select {
-//   @include input-base;
-//   min-width: 140px;
-//   cursor: pointer;
+  &--active {
+    background: $primary-color;
+    color: white;
+  }
+} 
+.setting-select {
+  @include input-base;
+  min-width: 140px;
+  cursor: pointer;
   
-//   option {
-//     @include text-primary;
-//   }
-// }
+  option {
+    @include text-primary;
+  }
+}

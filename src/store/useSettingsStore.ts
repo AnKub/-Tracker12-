@@ -1,4 +1,5 @@
 import {create} from 'zustand';
+import type {AppSettings, Currency, Language, DateFormat} from '../types/Settings';
 
 interface SettingsState {
   currency: 'UAH' |'USD'|'EUR';
