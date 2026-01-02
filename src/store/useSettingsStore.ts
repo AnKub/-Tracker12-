@@ -1,9 +1,9 @@
 import {create} from 'zustand';
-import type {AppSettings, Currency, Language, DateFormat} from '../types/Settings';
+import type {Currency, Language} from '../types';
 
 interface SettingsState {
-  currency: 'UAH' |'USD'|'EUR';
-  language: 'en' | 'ua';
+  currency: Currency;
+  language: Language;
 }
 
 interface SettingsActions {
@@ -16,7 +16,7 @@ type SettingsStore = SettingsState & SettingsActions;
 
 export const useSettingsStore = create<SettingsStore>((set)=> ({
   currency: 'UAH',
-  language: 'en',
+  language: 'uk',
 
   setCurrency: (currency) => {set({currency});
 },
@@ -27,4 +27,8 @@ setLanguage: (language) => {set({language});
 loadSettings: () => {
   const savedCurrency = localStorage.getItem('settings_currency') as SettingsState['currency'] | null;
   const savedLanguage = localStorage.getItem('settings_language') as SettingsState['language'] | null;
-}));
+  
+  if (savedCurrency && savedLanguage) {
+ 
+  }
+},));
