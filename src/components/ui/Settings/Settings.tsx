@@ -10,7 +10,7 @@ interface  SettingsProps {
 
 export const Settings: React.FC<SettingsProps> = ({isOpen, onClose}) => {
   const {theme, toggleTheme} = useTheme();
-  const {currency, setCurrency} = useSettingsStore();
+  const {currency, language, setLanguage, resetSettings, setCurrency} = useSettingsStore();
 
   if (!isOpen) return null;
 
@@ -41,6 +41,19 @@ export const Settings: React.FC<SettingsProps> = ({isOpen, onClose}) => {
                       <option value="USD">🇺🇸 USD ($)</option>
                       <option value="EUR">🇪🇺 EUR (€)</option>
                     </select>
+                    <span className="setting-item__label">Language</span>
+                    <select 
+                    value={language} 
+                    onChange={(e) => setLanguage(e.target.value as Language)}
+                    className="setting-select">
+                      <option value="uk">🇺🇦 Українська</option> 
+                      <option value="en">🇺🇸 English</option>
+                    </select>
+                    <div className="setting-item">
+                      <button onClick= {resetSettings} className="btn btn--secondary">
+                        Reset
+                      </button>
+                    </div>
           </div> 
         </div>
       </div>
