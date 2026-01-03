@@ -20,10 +20,14 @@ export const useSettingsStore = create<SettingsStore>((set, get)=> ({
   currency: 'UAH',
   language: 'uk',
 
-  setCurrency: (currency) => {set({currency});
-},
+  setCurrency: (currency) => {
+    set({currency});
+    get().saveSettings();
+}, 
 
-setLanguage: (language) => {set({language});
+setLanguage: (language) => {
+  set({language});
+  get().saveSettings();
 },
 
 loadSettings: () => {
@@ -38,7 +42,7 @@ loadSettings: () => {
   });
   }
   } catch (error) {
-    console.log('Failed to load settings', error);
+    console.error('Failed to load settings', error);
   }
 },
 
@@ -48,7 +52,7 @@ loadSettings: () => {
   localStorage.setItem('settings_currency', currency);
   localStorage.setItem('settings_language', language);
   } catch (error) {
-    console.log('Failed to save settings', error);
+    console.error('Failed to save settings', error);
   } 
  },
 
