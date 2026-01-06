@@ -31,6 +31,7 @@ export const Settings: React.FC<SettingsProps> = ({isOpen, onClose}) => {
                         {theme === 'dark' ? '🌙' : '☀️'}
                     </button>
                   </div>
+
                   <div className="setting-item">
                     <span className="setting-item__label">Currency</span>
                     <select 
@@ -42,6 +43,9 @@ export const Settings: React.FC<SettingsProps> = ({isOpen, onClose}) => {
                       <option value="USD">🇺🇸 USD ($)</option>
                       <option value="EUR">🇪🇺 EUR (€)</option>
                     </select>
+                    </div>
+
+                  <div className="setting-item">
                     <span className="setting-item__label">Language</span>
                     <select 
                     value={language} 
@@ -50,6 +54,8 @@ export const Settings: React.FC<SettingsProps> = ({isOpen, onClose}) => {
                       <option value="uk">🇺🇦 Українська</option> 
                       <option value="en">🇺🇸 English</option>
                     </select>
+                  </div>
+
                     <div className="setting-item">
                       <button onClick= {resetSettings} className="btn btn--secondary">
                         Reset
@@ -58,7 +64,6 @@ export const Settings: React.FC<SettingsProps> = ({isOpen, onClose}) => {
           </div> 
         </div>
       </div>
-    </div>
   ) ;
   
   

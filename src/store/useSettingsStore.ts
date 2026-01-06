@@ -4,6 +4,9 @@ import type {Currency, Language} from '../types';
 interface SettingsState {
   currency: Currency;
   language: Language;
+  dateFormat: DateFormat;
+  notifications: boolean;
+  showTutorials: boolean;
 }
 
 interface SettingsActions {
