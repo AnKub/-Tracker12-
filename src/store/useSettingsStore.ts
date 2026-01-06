@@ -1,5 +1,5 @@
 import {create} from 'zustand';
-import type {Currency, Language} from '../types';
+import type {Currency, Language, DateFormat} from '../types';
 
 interface SettingsState {
   currency: Currency;
@@ -10,8 +10,11 @@ interface SettingsState {
 }
 
 interface SettingsActions {
-setCurrency: (currency: SettingsState['currency'])=> void;
-setLanguage: (language: SettingsState['language'])=> void;
+setCurrency: (currency: Currency)=> void;
+setLanguage: (language: Language)=> void;
+setDateFormat: (dateFormat: DateFormat) => void;
+setNotifications: (enabled: boolean) => void;
+setShowTutorials: (enabled: boolean) => void;
 loadSettings: () => void;
 saveSettings: () => void;
 resetSettings:() => void;
@@ -22,6 +25,9 @@ type SettingsStore = SettingsState & SettingsActions;
 export const useSettingsStore = create<SettingsStore>((set, get)=> ({
   currency: 'UAH',
   language: 'uk',
+  dateFormat: 'DD/MM/YYYY',
+  notifications: true,
+  showTutorials: true,
 
   setCurrency: (currency) => {
     set({currency});
@@ -30,6 +36,21 @@ export const useSettingsStore = create<SettingsStore>((set, get)=> ({
 
 setLanguage: (language) => {
   set({language});
+  get().saveSettings();
+},
+
+setDateFormat: (dateFormat) =>{
+  set({dateFormat});
+  get().saveSettings();
+},
+
+setNotifications: (notifications) => {
+ set({notifications});
+ get().saveSettings();
+},
+
+setShowTutorials: (showTutorials) => {
+  set({showTutorials});
   get().saveSettings();
 },
 
@@ -60,9 +81,12 @@ loadSettings: () => {
  },
 
  resetSettings: () => {
-  set({
+ set({
     currency: 'UAH',
-    language: 'uk'
+    language: 'uk',
+    dateFormat: 'DD/MM/YYYY',
+    notifications: true,
+    showTutorials: true
   });
   get().saveSettings();
  }
