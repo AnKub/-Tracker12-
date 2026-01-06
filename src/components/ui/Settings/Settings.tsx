@@ -53,7 +53,7 @@ export const Settings: React.FC<SettingsProps> = ({isOpen, onClose}) => {
                     </button>
                   </div>
 
-                  <div className="setting-">
+                  <div className="setting-item">
                     <span className='setting-item__label'>Show Tutorials</span>
                   <button
                   onClick= {()=> setShowTutorials(!showTutorials)}
@@ -77,7 +77,7 @@ export const Settings: React.FC<SettingsProps> = ({isOpen, onClose}) => {
                     </select>
                     </div>
 
-                    <div className="setting-">
+                    <div className="setting-item">
                       <span className='setting-item__label'>Date Format</span>
                       <select value={dateFormat} onChange={(e) => setDateFormat(e.target.value as DateFormat)}
                          className="setting-select" 
