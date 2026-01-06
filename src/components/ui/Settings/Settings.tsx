@@ -1,7 +1,7 @@
 import React from 'react';
 import './Settings.scss';
 import {useTheme} from '../../../hooks/useTheme';
-import type {Language} from '../../../types';
+import type {Language, DateFormat} from '../../../types';
 import {useSettingsStore} from '../../../store/useSettingsStore';
 
 interface  SettingsProps {
@@ -11,7 +11,19 @@ interface  SettingsProps {
 
 export const Settings: React.FC<SettingsProps> = ({isOpen, onClose}) => {
   const {theme, toggleTheme} = useTheme();
-  const {currency, language, setLanguage, resetSettings, setCurrency} = useSettingsStore();
+  const {
+    currency,
+     language, 
+     dateFormat, 
+     notifications, 
+     showTutorials, 
+     setLanguage, 
+     resetSettings,
+     setDateFormat, 
+     setNotifications, 
+     setShowTutorials, 
+     setCurrency
+    } = useSettingsStore();
 
   if (!isOpen) return null;
 
@@ -33,6 +45,26 @@ export const Settings: React.FC<SettingsProps> = ({isOpen, onClose}) => {
                   </div>
 
                   <div className="setting-item">
+                    <span className="setting-item__label">Notifications</span>
+                  <button 
+                  onClick={()=> setNotifications(!notifications)}
+                  className={`toggle-btn ${notifications ? 'toggle-btn--active': ''}`}>
+                    {notifications ? '🔔' : '🔕'}
+                    </button>
+                  </div>
+
+                  <div className="setting-">
+                    <span className='setting-item__label'>Show Tutorials</span>
+                  <button
+                  onClick= {()=> setShowTutorials(!showTutorials)}
+                  className={`toggle-btn ${showTutorials ? 'toggle-btn--active':''}`}
+                  >
+                    {showTutorials ? '💡 On' : '⚪ Off'}
+                  </button>
+                  </div>
+
+
+                  <div className="setting-item">
                     <span className="setting-item__label">Currency</span>
                     <select 
                       value={currency}
@@ -43,6 +75,17 @@ export const Settings: React.FC<SettingsProps> = ({isOpen, onClose}) => {
                       <option value="USD">🇺🇸 USD ($)</option>
                       <option value="EUR">🇪🇺 EUR (€)</option>
                     </select>
+                    </div>
+
+                    <div className="setting-">
+                      <span className='setting-item__label'>Date Format</span>
+                      <select value={dateFormat} onChange={(e) => setDateFormat(e.target.value as DateFormat)}
+                         className="setting-select" 
+                         >
+                        <option value="DD/MM/YYYY">DD/MM/YYYY (15/01/2025)</option>
+                        <option value="MM/DD/YYYY">MM/DD/YYYY (01/15/2025)</option>
+                        <option value="YYYY-MM-DD">YYYY-MM-DD (2025-01-15)</option>
+                      </select>
                     </div>
 
                   <div className="setting-item">
