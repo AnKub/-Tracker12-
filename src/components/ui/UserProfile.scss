@@ -1,150 +1,150 @@
-@use 'sass:color';
-@use '../../styles/variables' as *;
-@use '../../styles/mixins' as *;
+// @use 'sass:color';
+// @use '../../styles/variables' as *;
+// @use '../../styles/mixins' as *;
 
-.user-profile {
-  position: fixed;
-  top: 0;
-  left: 0;
-  right: 0;
-  bottom: 0;
-  background-color: rgba(0, 0, 0, 0.5);
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  z-index: 1000;
+// .user-profile {
+//   position: fixed;
+//   top: 0;
+//   left: 0;
+//   right: 0;
+//   bottom: 0;
+//   background-color: rgba(0, 0, 0, 0.5);
+//   display: flex;
+//   align-items: center;
+//   justify-content: center;
+//   z-index: 1000;
 
-  &__content {
-    @include card;
-    border-radius: 12px;
-    width: 90%;
-    max-width: 400px;
-    box-shadow: 0 10px 25px rgba(0, 0, 0, 0.2);
-  }
+//   &__content {
+//     @include card;
+//     border-radius: 12px;
+//     width: 90%;
+//     max-width: 400px;
+//     box-shadow: 0 10px 25px rgba(0, 0, 0, 0.2);
+//   }
 
-  &__header {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    padding: 1.5rem;
-    border-bottom: 1px solid $light-border;
+//   &__header {
+//     display: flex;
+//     justify-content: space-between;
+//     align-items: center;
+//     padding: 1.5rem;
+//     border-bottom: 1px solid $light-border;
     
-    .dark & {
-      border-color: $dark-border;
-    }
+//     .dark & {
+//       border-color: $dark-border;
+//     }
 
-    h2 {
-      margin: 0;
-      @include text-primary;
-    }
-  }
+//     h2 {
+//       margin: 0;
+//       @include text-primary;
+//     }
+//   }
 
-  &__close-btn {
-    background: none;
-    border: none;
-    font-size: 1.5rem;
-    cursor: pointer;
-    @include text-secondary;
-    padding: 0.25rem;
+//   &__close-btn {
+//     background: none;
+//     border: none;
+//     font-size: 1.5rem;
+//     cursor: pointer;
+//     @include text-secondary;
+//     padding: 0.25rem;
 
-    &:hover {
-      @include text-primary;
-    }
-  }
+//     &:hover {
+//       @include text-primary;
+//     }
+//   }
 
-  &__body {
-    padding: 1.5rem;
-  }
+//   &__body {
+//     padding: 1.5rem;
+//   }
 
-  &__avatar {
-    display: flex;
-    justify-content: center;
-    margin-bottom: 1.5rem;
-  }
+//   &__avatar {
+//     display: flex;
+//     justify-content: center;
+//     margin-bottom: 1.5rem;
+//   }
 
-  &__avatar-circle {
-    width: 80px;
-    height: 80px;
-    border-radius: 50%;
-    background: linear-gradient(135deg, $primary-color, color.adjust($primary-color, $lightness: 20%));
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    font-size: 2rem;
-    font-weight: bold;
-    color: white;
-  }
+//   &__avatar-circle {
+//     width: 80px;
+//     height: 80px;
+//     border-radius: 50%;
+//     background: linear-gradient(135deg, $primary-color, color.adjust($primary-color, $lightness: 20%));
+//     display: flex;
+//     align-items: center;
+//     justify-content: center;
+//     font-size: 2rem;
+//     font-weight: bold;
+//     color: white;
+//   }
 
-  &__field {
-    margin-bottom: 1rem;
+//   &__field {
+//     margin-bottom: 1rem;
 
-    label {
-      display: block;
-      font-weight: 500;
-      @include text-primary;
-      margin-bottom: 0.5rem;
-    }
+//     label {
+//       display: block;
+//       font-weight: 500;
+//       @include text-primary;
+//       margin-bottom: 0.5rem;
+//     }
 
-    span {
-      display: block;
-      padding: 0.75rem 0;
-      @include text-secondary;
-    }
+//     span {
+//       display: block;
+//       padding: 0.75rem 0;
+//       @include text-secondary;
+//     }
 
-    input, select {
-      @include input-base;
+//     input, select {
+//       @include input-base;
       
-      &:focus {
-        border-color: $primary-color;
-      }
-    }
-  }
+//       &:focus {
+//         border-color: $primary-color;
+//       }
+//     }
+//   }
 
-  &__edit-btn {
-    @include button-primary;
-    width: 100%;
-    padding: 0.75rem;
-    border-radius: 8px;
-    font-weight: 500;
-    margin-top: 1rem;
-  }
+//   &__edit-btn {
+//     @include button-primary;
+//     width: 100%;
+//     padding: 0.75rem;
+//     border-radius: 8px;
+//     font-weight: 500;
+//     margin-top: 1rem;
+//   }
 
-  &__actions {
-    display: flex;
-    gap: 1rem;
-    margin-top: 1rem;
-  }
+//   &__actions {
+//     display: flex;
+//     gap: 1rem;
+//     margin-top: 1rem;
+//   }
 
-  &__save-btn {
-    @include button-success;
-    flex: 1;
-    padding: 0.75rem;
-    border-radius: 8px;
-    font-weight: 500;
-  }
+//   &__save-btn {
+//     @include button-success;
+//     flex: 1;
+//     padding: 0.75rem;
+//     border-radius: 8px;
+//     font-weight: 500;
+//   }
 
-  &__cancel-btn {
-    flex: 1;
-    padding: 0.75rem;
-    background-color: $light-border;
-    @include text-primary;
-    border: none;
-    border-radius: 8px;
-    cursor: pointer;
-    font-weight: 500;
-    transition: all $transition-fast;
+//   &__cancel-btn {
+//     flex: 1;
+//     padding: 0.75rem;
+//     background-color: $light-border;
+//     @include text-primary;
+//     border: none;
+//     border-radius: 8px;
+//     cursor: pointer;
+//     font-weight: 500;
+//     transition: all $transition-fast;
     
-    .dark & {
-      background-color: $dark-border;
-    }
+//     .dark & {
+//       background-color: $dark-border;
+//     }
 
-    &:hover {
-      @include text-secondary;
-      background-color: color.adjust($light-border, $lightness: -10%);
+//     &:hover {
+//       @include text-secondary;
+//       background-color: color.adjust($light-border, $lightness: -10%);
       
-      .dark & {
-        background-color: color.adjust($dark-border, $lightness: 10%);
-      }
-    }
-  }
-}
+//       .dark & {
+//         background-color: color.adjust($dark-border, $lightness: 10%);
+//       }
+//     }
+//   }
+// }
