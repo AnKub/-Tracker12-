@@ -23,6 +23,11 @@ export interface User {
   displayName:string;
   photoURL?:string;
   createdAt?:Date;
+  phone?:string;
+  dateOfBrth:Date;
+  bio?:string;
+  emailVerified?:boolean;
+  lastLoginAt?:Date;
 }
 
 export interface MonthlyStats{
