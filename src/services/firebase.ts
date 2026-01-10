@@ -38,3 +38,7 @@ export const storage = getStorage(app);
 
 export default app;
 
+export const authService = {
+  login: async (email: string, password: string) => {
+    return await signInWithEmailAndPassword(auth, email, password);
+  },
