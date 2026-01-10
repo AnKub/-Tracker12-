@@ -2,7 +2,8 @@ import { initializeApp } from 'firebase/app';
 import { 
   signInWithEmailAndPassword, 
   createUserWithEmailAndPassword, 
-  signOut,                      
+  signOut,                   
+  getAuth,   
   sendPasswordResetEmail,     
   updateProfile,                 
   updatePassword,                
@@ -36,3 +37,4 @@ export const db = getFirestore(app);
 export const storage = getStorage(app);
 
 export default app;
+
