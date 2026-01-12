@@ -1,7 +1,7 @@
 import React, {useState} from 'react';
 import { authService } from '../../services/firebase';
 import {useExpenseStore} from '../../store/useExpenseStore';
-import './AuthModaal.scss';
+import './AuthModal.scss';
 
 interface AuthModalProps{
   isOpen: boolean;
@@ -16,7 +16,7 @@ export const AuthModal: React.FC<AuthModalProps> =({
   initialMode = 'login'
 })=> {
   const [mode, setMode] = useState<AuthMode>(initialMode);
-  const [loading,seiLoading] = useState(false);
+  const [loading, setLoading] = useState(false);
   const [error, setError] = useState('');
 
   const [formData, setFormData] = useState({
@@ -71,6 +71,37 @@ export const AuthModal: React.FC<AuthModalProps> =({
     
     return true; 
   };
- 
 
-}
+  if (!isOpen) return null;
+  
+  const handleSubmit = async (e: React.FormEvent)=> {
+    e.preventDefault();
+    if(!validateForm())return;
+
+    setLoading(true);
+    setError('');
+
+    try{
+      if(mode === 'login'){
+        const result = await authService.login(formData.email, formData.password);
+
+        const user = {
+          uid: result.user.uid,
+          email:result.user.email!,
+          displayName: result.user.displayName || 'User',
+          photoURL: result.user.photoURL || undefined,
+          emailVerified: result.user.emailVerified 
+          };
+          setUser(user);
+
+          onClose();
+        
+      }
+    }
+  }
+
+
+  return (
+    <div>AuthModal Component</div>
+  );
+};
