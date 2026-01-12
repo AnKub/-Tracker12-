@@ -83,7 +83,10 @@ export const AuthModal: React.FC<AuthModalProps> =({
 
     try{
       if(mode === 'login'){
-        const result = await authService.login(formData.email, formData.password);
+        const result = await authService.login(
+          formData.email, 
+          formData.password
+        );
 
         const user = {
           uid: result.user.uid,
@@ -96,6 +99,22 @@ export const AuthModal: React.FC<AuthModalProps> =({
 
           onClose();
         
+      }else if(mode === 'register') {
+        const result = await authService.register(
+          formData.email,
+          formData.password,
+          formData.displayName
+        );
+
+        const user = {
+          uid:result.user.uid,
+          email: result.user.email!,
+          displayName: result.user.displayName || 'User',
+          photoURL: result.user.photoURL || undefined,
+          emailVerified: result.user.emailVerified
+        };
+        setUser(user);
+        onClose();
       }
     }
   }
