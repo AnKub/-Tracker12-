@@ -24,7 +24,7 @@ export interface User {
   photoURL?:string;
   createdAt?:Date;
   phone?:string;
-  dateOfBrth:Date;
+  dateOfBirth?:Date;
   bio?:string;
   emailVerified?:boolean;
   lastLoginAt?:Date;
