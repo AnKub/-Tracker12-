@@ -28,7 +28,49 @@ export const AuthModal: React.FC<AuthModalProps> =({
 
   const setUser = useExpenseStore(state => state.setUser);
 
-  
+  const handleInputChange = (e: React.ChangeEvent<HTMLInputElement>)=> {
+    const {name, value} = e.target;
+    setFormData(prev=> ({
+      ...prev,
+      [name]: value
+    }));
+  };
 
+  const validateForm = () => {
+    setError('');
+    if(!formData.email){
+      setError('Email is required.');
+      return false;
+    }
+      const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+    if (!emailRegex.test(formData.email)) {
+      setError('Please enter a valid email');
+      return false;
+    }
+    if (mode!== 'reset'){
+      if(!formData.password){
+        setError('Password is required');
+        return false;
+      }
+      if(formData.password.length < 6){
+        setError('Password must be at least 6 characters');
+        return false;
+      }
+    }
+     if (mode === 'register') {
+      if (!formData.displayName) {
+        setError('Name is required');
+        return false;
+      }
+      
+      if (formData.password !== formData.confirmPassword) {
+        setError('Passwords do not match');
+        return false;
+      }
+    }
+    
+    return true; 
+  };
+ 
 
 }
