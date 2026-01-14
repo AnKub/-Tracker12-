@@ -108,13 +108,13 @@ export const AuthModal: React.FC<AuthModalProps> =({
         const user = {
           uid:result.user.uid,
           email: result.user.email!,
-          displayName: result.user.displayName || 'User',
+          displayName: result.user.displayName || formData.displayName,
           photoURL: result.user.photoURL || undefined,
           emailVerified: result.user.emailVerified
         };
         setUser(user);
         onClose();
-      } else if (mode === 'reset ') {
+      } else if (mode === 'reset') {
         await authService.resetPassword(formData.email);
         setError('Password reset email sent. Check your inbox');
         setTimeout(() => {
@@ -122,8 +122,32 @@ export const AuthModal: React.FC<AuthModalProps> =({
           setError('');
         }, 3000);
       }
+    } catch (error: any) {
+      console.error('Auth error:', error);
+      
+      if (error.code === 'auth/user-not-found') {
+        setError('No account found with this email');
+      } else if (error.code === 'auth/wrong-password') {
+        setError('Incorrect password');
+      } else if (error.code === 'auth/email-already-in-use') {
+        setError('Email is already registered');
+      } else {
+        setError(error.message || 'An error occurred');
+      }
+    } finally {
+      setLoading(false);
     }
-  }
+  };
+   const switchMode = (newMode: AuthMode) => {
+    setMode(newMode);
+    setError('');
+    setFormData({
+      email: '',
+      password: '',
+      confirmPassword: '',
+      displayName: ''
+    });
+  };
 
 
   return (
