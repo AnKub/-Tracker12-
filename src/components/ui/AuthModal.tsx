@@ -151,6 +151,6 @@ export const AuthModal: React.FC<AuthModalProps> =({
 
 
   return (
-    <div> Component</div>
+    <div>AuthModal Component</div>
   );
 };
