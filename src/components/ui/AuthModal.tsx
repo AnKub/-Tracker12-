@@ -151,6 +151,144 @@ export const AuthModal: React.FC<AuthModalProps> =({
 
 
   return (
-    <div>AuthModal Component</div>
+    <div className="auth-modal" onClick={onClose}>
+      <div className="auth-modal__content" onClick={(e) => e.stopPropagation()}>
+        
+        <div className="auth-modal__header">
+          <h2>
+            {mode === 'login' && 'Sign In'}
+            {mode === 'register' && 'Create Account'}
+            {mode === 'reset' && 'Reset Password'}
+          </h2>
+          <button onClick={onClose} className="auth-modal__close">
+            ×
+          </button>
+        </div>
+
+        {error && (
+          <div className="auth-modal__error">
+            {error}
+          </div>
+        )}
+
+        <form onSubmit={handleSubmit} className="auth-modal__form">
+          
+          <div className="form-group">
+            <label htmlFor="email">Email:</label>
+            <input
+              type="email"
+              id="email"
+              name="email"
+              value={formData.email}
+              onChange={handleInputChange}
+              placeholder="Enter your email"
+              required
+            />
+          </div>
+
+          {mode === 'register' && (
+            <div className="form-group">
+              <label htmlFor="displayName">Name:</label>
+              <input
+                type="text"
+                id="displayName"
+                name="displayName"
+                value={formData.displayName}
+                onChange={handleInputChange}
+                placeholder="Enter your name"
+                required
+              />
+            </div>
+          )}
+
+          {mode !== 'reset' && (
+            <div className="form-group">
+              <label htmlFor="password">Password:</label>
+              <input
+                type="password"
+                id="password"
+                name="password"
+                value={formData.password}
+                onChange={handleInputChange}
+                placeholder="Enter your password"
+                required
+              />
+            </div>
+          )}
+
+          {mode === 'register' && (
+            <div className="form-group">
+              <label htmlFor="confirmPassword">Confirm Password:</label>
+              <input
+                type="password"
+                id="confirmPassword"
+                name="confirmPassword"
+                value={formData.confirmPassword}
+                onChange={handleInputChange}
+                placeholder="Confirm your password"
+                required
+              />
+            </div>
+          )}
+
+          <button 
+            type="submit" 
+            className="auth-modal__submit"
+            disabled={loading}
+          >
+            {loading ? 'Loading...' : (
+              <>
+                {mode === 'login' && 'Sign In'}
+                {mode === 'register' && 'Create Account'}
+                {mode === 'reset' && 'Send Reset Email'}
+              </>
+            )}
+          </button>
+
+        </form>
+
+        <div className="auth-modal__links">
+          {mode === 'login' && (
+            <>
+              <button 
+                type="button"
+                onClick={() => switchMode('register')}
+                className="auth-modal__link"
+              >
+                Don't have an account? Sign up
+              </button>
+              <button 
+                type="button"
+                onClick={() => switchMode('reset')}
+                className="auth-modal__link"
+              >
+                Forgot password?
+              </button>
+            </>
+          )}
+          
+          {mode === 'register' && (
+            <button 
+              type="button"
+              onClick={() => switchMode('login')}
+              className="auth-modal__link"
+            >
+              Already have an account? Sign in
+            </button>
+          )}
+          
+          {mode === 'reset' && (
+            <button 
+              type="button"
+              onClick={() => switchMode('login')}
+              className="auth-modal__link"
+            >
+              Back to sign in
+            </button>
+          )}
+        </div>
+
+      </div>
+    </div>
   );
 };
