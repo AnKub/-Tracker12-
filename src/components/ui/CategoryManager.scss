@@ -1,444 +1,444 @@
-@use 'sass:color';
-@use '../../styles/variables' as *;
-@use '../../styles/mixins' as *;
+// @use 'sass:color';
+// @use '../../styles/variables' as *;
+// @use '../../styles/mixins' as *;
 
-.category-manager {
-  position: fixed;
-  top: 0;
-  left: 0;
-  right: 0;
-  bottom: 0;
-  background-color: rgba(0, 0, 0, 0.5);
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  z-index: 1000;
-  animation: fadeIn 0.3s ease-out;
+// .category-manager {
+//   position: fixed;
+//   top: 0;
+//   left: 0;
+//   right: 0;
+//   bottom: 0;
+//   background-color: rgba(0, 0, 0, 0.5);
+//   display: flex;
+//   align-items: center;
+//   justify-content: center;
+//   z-index: 1000;
+//   animation: fadeIn 0.3s ease-out;
 
-  &__content {
-    background-color: $light-card;
-    border-radius: 12px;
-    width: 90%;
-    max-width: 600px;
-    max-height: 90vh;
-    overflow: auto;
-    box-shadow: 0 10px 25px rgba(0, 0, 0, 0.2);
-    animation: slideInUp 0.4s ease-out;
+//   &__content {
+//     background-color: $light-card;
+//     border-radius: 12px;
+//     width: 90%;
+//     max-width: 600px;
+//     max-height: 90vh;
+//     overflow: auto;
+//     box-shadow: 0 10px 25px rgba(0, 0, 0, 0.2);
+//     animation: slideInUp 0.4s ease-out;
     
-    .dark & {
-      background-color: $dark-card;
-    }
-  }
+//     .dark & {
+//       background-color: $dark-card;
+//     }
+//   }
 
-  &__header {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    padding: 1.5rem;
-    border-bottom: 1px solid $light-border;
+//   &__header {
+//     display: flex;
+//     justify-content: space-between;
+//     align-items: center;
+//     padding: 1.5rem;
+//     border-bottom: 1px solid $light-border;
     
-    .dark & {
-      border-color: $dark-border;
-    }
+//     .dark & {
+//       border-color: $dark-border;
+//     }
 
-    h2 {
-      margin: 0;
-      @include text-primary;
-      font-size: 1.25rem;
-    }
-  }
+//     h2 {
+//       margin: 0;
+//       @include text-primary;
+//       font-size: 1.25rem;
+//     }
+//   }
 
-  &__close-btn {
-    background: none;
-    border: none;
-    font-size: 1.5rem;
-    cursor: pointer;
-    @include text-secondary;
-    padding: 0.25rem;
-    transition: color $transition-fast;
+//   &__close-btn {
+//     background: none;
+//     border: none;
+//     font-size: 1.5rem;
+//     cursor: pointer;
+//     @include text-secondary;
+//     padding: 0.25rem;
+//     transition: color $transition-fast;
 
-    &:hover {
-      @include text-primary;
-    }
-  }
+//     &:hover {
+//       @include text-primary;
+//     }
+//   }
 
-  &__body {
-    padding: 1.5rem;
-  }
+//   &__body {
+//     padding: 1.5rem;
+//   }
 
-  &__actions {
-    margin-bottom: 1.5rem;
-  }
+//   &__actions {
+//     margin-bottom: 1.5rem;
+//   }
 
-  &__add-btn {
-    @include button-primary;
-    padding: 0.75rem 1.5rem;
-    border-radius: 8px;
-    font-weight: 500;
-  }
-}
+//   &__add-btn {
+//     @include button-primary;
+//     padding: 0.75rem 1.5rem;
+//     border-radius: 8px;
+//     font-weight: 500;
+//   }
+// }
 
-.category-form {
-  background-color: $light-background;
-  padding: 1.5rem;
-  border-radius: 8px;
-  margin-bottom: 1.5rem;
+// .category-form {
+//   background-color: $light-background;
+//   padding: 1.5rem;
+//   border-radius: 8px;
+//   margin-bottom: 1.5rem;
   
-  .dark & {
-    background-color: color.adjust($dark-background, $lightness: 5%);
-  }
+//   .dark & {
+//     background-color: color.adjust($dark-background, $lightness: 5%);
+//   }
 
-  h3 {
-    margin: 0 0 1rem 0;
-    @include text-primary;
-    font-size: 1.1rem;
-  }
+//   h3 {
+//     margin: 0 0 1rem 0;
+//     @include text-primary;
+//     font-size: 1.1rem;
+//   }
 
-  .form-field {
-    margin-bottom: 1rem;
+//   .form-field {
+//     margin-bottom: 1rem;
 
-    label {
-      display: block;
-      font-weight: 500;
-      @include text-primary;
-      margin-bottom: 0.5rem;
-      font-size: 0.875rem;
-    }
+//     label {
+//       display: block;
+//       font-weight: 500;
+//       @include text-primary;
+//       margin-bottom: 0.5rem;
+//       font-size: 0.875rem;
+//     }
 
-    input, select {
-      @include input-base;
-      font-size: 0.875rem;
+//     input, select {
+//       @include input-base;
+//       font-size: 0.875rem;
 
-      &[type="color"] {
-        height: 40px;
-        padding: 0.25rem;
-        cursor: pointer;
-      }
-    }
-  }
+//       &[type="color"] {
+//         height: 40px;
+//         padding: 0.25rem;
+//         cursor: pointer;
+//       }
+//     }
+//   }
 
-  .form-actions {
-    display: flex;
-    gap: 1rem;
-    margin-top: 1.5rem;
+//   .form-actions {
+//     display: flex;
+//     gap: 1rem;
+//     margin-top: 1.5rem;
 
-    button {
-      flex: 1;
-      padding: 0.75rem;
-      border: none;
-      border-radius: 6px;
-      cursor: pointer;
-      font-weight: 500;
-      transition: all 0.2s ease;
-    }
+//     button {
+//       flex: 1;
+//       padding: 0.75rem;
+//       border: none;
+//       border-radius: 6px;
+//       cursor: pointer;
+//       font-weight: 500;
+//       transition: all 0.2s ease;
+//     }
 
-    .save-btn {
-      @include button-success;
-    }
+//     .save-btn {
+//       @include button-success;
+//     }
 
-    .cancel-btn {
-      background-color: $light-border;
-      @include text-primary;
+//     .cancel-btn {
+//       background-color: $light-border;
+//       @include text-primary;
 
-      .dark & {
-        background-color: $dark-border;
-      }
+//       .dark & {
+//         background-color: $dark-border;
+//       }
 
-      &:hover {
-        @include text-secondary;
-        background-color: darken($light-border, 10%);
+//       &:hover {
+//         @include text-secondary;
+//         background-color: darken($light-border, 10%);
         
-        .dark & {
-          background-color: lighten($dark-border, 10%);
-        }
-      }
-    }
-  }
-}
+//         .dark & {
+//           background-color: lighten($dark-border, 10%);
+//         }
+//       }
+//     }
+//   }
+// }
 
-.categories-grid {
-  display: grid;
-  grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
-  gap: 1rem;
+// .categories-grid {
+//   display: grid;
+//   grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+//   gap: 1rem;
 
-  @media (max-width: 568px) {
-    grid-template-columns: 1fr;
-  }
-}
+//   @media (max-width: 568px) {
+//     grid-template-columns: 1fr;
+//   }
+// }
 
-.category-card {
-  background-color: $light-card;
-  border-radius: 8px;
-  padding: 1rem;
-  cursor: pointer;
-  transition: all $transition-fast;
-  position: relative;
-  border: 1px solid $light-border;
+// .category-card {
+//   background-color: $light-card;
+//   border-radius: 8px;
+//   padding: 1rem;
+//   cursor: pointer;
+//   transition: all $transition-fast;
+//   position: relative;
+//   border: 1px solid $light-border;
   
-  .dark & {
-    background-color: $dark-card;
-    border-color: $dark-border;
-  }
+//   .dark & {
+//     background-color: $dark-card;
+//     border-color: $dark-border;
+//   }
 
-  &:hover {
-    transform: translateY(-2px);
-    box-shadow: $shadow-lg;
-  }
+//   &:hover {
+//     transform: translateY(-2px);
+//     box-shadow: $shadow-lg;
+//   }
 
-  &__icon {
-    font-size: 2rem;
-    margin-bottom: 0.5rem;
-  }
+//   &__icon {
+//     font-size: 2rem;
+//     margin-bottom: 0.5rem;
+//   }
 
-  &__info {
-    h4 {
-      margin: 0 0 0.25rem 0;
-      @include text-primary;
-      font-size: 1rem;
-    }
-  }
+//   &__info {
+//     h4 {
+//       margin: 0 0 0.25rem 0;
+//       @include text-primary;
+//       font-size: 1rem;
+//     }
+//   }
 
-  &__actions {
-    position: absolute;
-    top: 0.5rem;
-    right: 0.5rem;
-    display: flex;
-    gap: 0.25rem;
-    opacity: 0;
-    transition: opacity $transition-fast;
+//   &__actions {
+//     position: absolute;
+//     top: 0.5rem;
+//     right: 0.5rem;
+//     display: flex;
+//     gap: 0.25rem;
+//     opacity: 0;
+//     transition: opacity $transition-fast;
 
-    button {
-      background: none;
-      border: none;
-      padding: 0.25rem;
-      cursor: pointer;
-      font-size: 0.875rem;
-      border-radius: 4px;
-      transition: background-color $transition-fast;
+//     button {
+//       background: none;
+//       border: none;
+//       padding: 0.25rem;
+//       cursor: pointer;
+//       font-size: 0.875rem;
+//       border-radius: 4px;
+//       transition: background-color $transition-fast;
 
-      &:hover {
-        background-color: $light-border;
+//       &:hover {
+//         background-color: $light-border;
         
-        .dark & {
-          background-color: $dark-border;
-        }
-      }
-    }
-  }
+//         .dark & {
+//           background-color: $dark-border;
+//         }
+//       }
+//     }
+//   }
 
-  &:hover &__actions {
-    opacity: 1;
-  }
-}
+//   &:hover &__actions {
+//     opacity: 1;
+//   }
+// }
 
-.category-type {
-  font-size: 0.75rem;
-  padding: 0.25rem 0.5rem;
-  border-radius: 12px;
-  font-weight: 500;
-  text-transform: uppercase;
+// .category-type {
+//   font-size: 0.75rem;
+//   padding: 0.25rem 0.5rem;
+//   border-radius: 12px;
+//   font-weight: 500;
+//   text-transform: uppercase;
 
-  &--income {
-    background-color: $success-color;
-    color: white;
-  }
+//   &--income {
+//     background-color: $success-color;
+//     color: white;
+//   }
 
-  &--expense {
-    background-color: $error-color;
-    color: white;
-  }
-}
+//   &--expense {
+//     background-color: $error-color;
+//     color: white;
+//   }
+// }
 
-.category-stats {
-  margin-top: 0.5rem;
-  @include text-secondary;
-  font-size: 0.75rem;
+// .category-stats {
+//   margin-top: 0.5rem;
+//   @include text-secondary;
+//   font-size: 0.75rem;
 
-  &__count {
-    margin-right: 1rem;
-  }
+//   &__count {
+//     margin-right: 1rem;
+//   }
 
-  &__total {
-    font-weight: 500;
-  }
-}
+//   &__total {
+//     font-weight: 500;
+//   }
+// }
 
-.category-search {
-  margin-bottom: 1.5rem;
-  position: relative;
+// .category-search {
+//   margin-bottom: 1.5rem;
+//   position: relative;
 
-  input {
-    @include input-base;
-    padding-left: 2.5rem;
-    width: 100%;
+//   input {
+//     @include input-base;
+//     padding-left: 2.5rem;
+//     width: 100%;
     
-    &::placeholder {
-      @include text-secondary;
-    }
-  }
+//     &::placeholder {
+//       @include text-secondary;
+//     }
+//   }
 
-  &__icon {
-    position: absolute;
-    left: 0.75rem;
-    top: 50%;
-    transform: translateY(-50%);
-    @include text-secondary;
-    font-size: 1rem;
-  }
-}
+//   &__icon {
+//     position: absolute;
+//     left: 0.75rem;
+//     top: 50%;
+//     transform: translateY(-50%);
+//     @include text-secondary;
+//     font-size: 1rem;
+//   }
+// }
 
-.category-filters {
-  display: flex;
-  gap: 0.75rem;
-  margin-bottom: 1.5rem;
-  flex-wrap: wrap;
+// .category-filters {
+//   display: flex;
+//   gap: 0.75rem;
+//   margin-bottom: 1.5rem;
+//   flex-wrap: wrap;
 
-  @media (max-width: 568px) {
-    flex-direction: column;
-  }
+//   @media (max-width: 568px) {
+//     flex-direction: column;
+//   }
 
-  &__filter {
-    padding: 0.5rem 1rem;
-    border: 1px solid $light-border;
-    border-radius: 20px;
-    background-color: $light-card;
-    cursor: pointer;
-    font-size: 0.875rem;
-    font-weight: 500;
-    transition: all $transition-fast;
-    @include text-primary;
+//   &__filter {
+//     padding: 0.5rem 1rem;
+//     border: 1px solid $light-border;
+//     border-radius: 20px;
+//     background-color: $light-card;
+//     cursor: pointer;
+//     font-size: 0.875rem;
+//     font-weight: 500;
+//     transition: all $transition-fast;
+//     @include text-primary;
 
-    .dark & {
-      background-color: $dark-card;
-      border-color: $dark-border;
-    }
+//     .dark & {
+//       background-color: $dark-card;
+//       border-color: $dark-border;
+//     }
 
-    &:hover {
-      border-color: $primary-color;
-    }
+//     &:hover {
+//       border-color: $primary-color;
+//     }
 
-    &--active {
-      background-color: $primary-color;
-      color: white;
-      border-color: $primary-color;
+//     &--active {
+//       background-color: $primary-color;
+//       color: white;
+//       border-color: $primary-color;
 
-      &:hover {
-        background-color: color.adjust($primary-color, $lightness: -10%);
-      }
-    }
-  }
-}
+//       &:hover {
+//         background-color: color.adjust($primary-color, $lightness: -10%);
+//       }
+//     }
+//   }
+// }
 
-.category-empty-state {
-  text-align: center;
-  padding: 3rem 1rem;
+// .category-empty-state {
+//   text-align: center;
+//   padding: 3rem 1rem;
 
-  &__icon {
-    font-size: 3rem;
-    @include text-secondary;
-    margin-bottom: 1rem;
-  }
+//   &__icon {
+//     font-size: 3rem;
+//     @include text-secondary;
+//     margin-bottom: 1rem;
+//   }
 
-  h3 {
-    margin: 0 0 0.5rem 0;
-    @include text-primary;
-    font-size: 1.1rem;
-  }
+//   h3 {
+//     margin: 0 0 0.5rem 0;
+//     @include text-primary;
+//     font-size: 1.1rem;
+//   }
 
-  p {
-    margin: 0 0 1.5rem 0;
-    @include text-secondary;
-    line-height: 1.5;
-  }
+//   p {
+//     margin: 0 0 1.5rem 0;
+//     @include text-secondary;
+//     line-height: 1.5;
+//   }
 
-  button {
-    @include button-primary;
-    padding: 0.75rem 1.5rem;
-    border-radius: 8px;
-    font-weight: 500;
-  }
-}
+//   button {
+//     @include button-primary;
+//     padding: 0.75rem 1.5rem;
+//     border-radius: 8px;
+//     font-weight: 500;
+//   }
+// }
 
-.category-delete-confirm {
-  background-color: $light-card;
-  border-radius: 8px;
-  padding: 1.5rem;
-  text-align: center;
+// .category-delete-confirm {
+//   background-color: $light-card;
+//   border-radius: 8px;
+//   padding: 1.5rem;
+//   text-align: center;
   
-  .dark & {
-    background-color: $dark-card;
-  }
+//   .dark & {
+//     background-color: $dark-card;
+//   }
 
-  h3 {
-    margin: 0 0 1rem 0;
-    @include text-primary;
-    color: $error-color;
-  }
+//   h3 {
+//     margin: 0 0 1rem 0;
+//     @include text-primary;
+//     color: $error-color;
+//   }
 
-  p {
-    margin: 0 0 1.5rem 0;
-    @include text-secondary;
-    line-height: 1.5;
-  }
+//   p {
+//     margin: 0 0 1.5rem 0;
+//     @include text-secondary;
+//     line-height: 1.5;
+//   }
 
-  .confirm-actions {
-    display: flex;
-    gap: 1rem;
-    justify-content: center;
+//   .confirm-actions {
+//     display: flex;
+//     gap: 1rem;
+//     justify-content: center;
 
-    button {
-      padding: 0.75rem 1.5rem;
-      border: none;
-      border-radius: 6px;
-      cursor: pointer;
-      font-weight: 500;
-      transition: all 0.2s ease;
-    }
+//     button {
+//       padding: 0.75rem 1.5rem;
+//       border: none;
+//       border-radius: 6px;
+//       cursor: pointer;
+//       font-weight: 500;
+//       transition: all 0.2s ease;
+//     }
 
-    .delete-btn {
-      background-color: $error-color;
-      color: white;
+//     .delete-btn {
+//       background-color: $error-color;
+//       color: white;
 
-      &:hover {
-        background-color: color.adjust($error-color, $lightness: -10%);
-      }
-    }
+//       &:hover {
+//         background-color: color.adjust($error-color, $lightness: -10%);
+//       }
+//     }
 
-    .cancel-btn {
-      background-color: $light-border;
-      @include text-primary;
+//     .cancel-btn {
+//       background-color: $light-border;
+//       @include text-primary;
 
-      .dark & {
-        background-color: $dark-border;
-      }
+//       .dark & {
+//         background-color: $dark-border;
+//       }
 
-      &:hover {
-        background-color: color.adjust($light-border, $lightness: -10%);
+//       &:hover {
+//         background-color: color.adjust($light-border, $lightness: -10%);
         
-        .dark & {
-          background-color: color.adjust($dark-border, $lightness: 10%);
-        }
-      }
-    }
-  }
-}
+//         .dark & {
+//           background-color: color.adjust($dark-border, $lightness: 10%);
+//         }
+//       }
+//     }
+//   }
+// }
 
-@keyframes slideInUp {
-  from {
-    opacity: 0;
-    transform: translateY(20px);
-  }
-  to {
-    opacity: 1;
-    transform: translateY(0);
-  }
-}
+// @keyframes slideInUp {
+//   from {
+//     opacity: 0;
+//     transform: translateY(20px);
+//   }
+//   to {
+//     opacity: 1;
+//     transform: translateY(0);
+//   }
+// }
 
-@keyframes fadeIn {
-  from {
-    opacity: 0;
-  }
-  to {
-    opacity: 1;
-  }
-}
+// @keyframes fadeIn {
+//   from {
+//     opacity: 0;
+//   }
+//   to {
+//     opacity: 1;
+//   }
+// }
