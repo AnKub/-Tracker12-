@@ -293,16 +293,4 @@ export const AuthModal: React.FC<AuthModalProps> =({
   );
 };
 
-function MyButton (){
-  const [count, setCount] = useState(0);
 
-  function HandleClick (){
-    setCount(count +1);
-  }
-  return (
-    <button onClick={HandleClick}>
-      Puched {count} times
-    </button>
-  )
-
-}
