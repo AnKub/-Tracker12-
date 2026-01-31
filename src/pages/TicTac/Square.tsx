@@ -1,12 +1,12 @@
-import React from "react";
+
 import { useState } from "react";
 import './TicTac.scss'; 
 
-export default function Square({value}){
-  const[value, setValue] = useState(null);
+export default function Square(){
+  const[value, setValue] = useState<string | null>(null);
 
   function handleClick(){
-    console.log('Clicked')
+    setValue('X')
   }
 
   return (
