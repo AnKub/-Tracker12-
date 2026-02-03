@@ -2,17 +2,13 @@
 import { useState } from "react";
 import './TicTac.scss'; 
 
-export default function Square(){
-  const[value, setValue] = useState<string | null>(null);
-
-  function handleClick(){
-    setValue('X')
-  }
-
+export default function Square({value, onSquareClick}){
+ 
   return (
          <button 
          className="square"
-         onClick={handleClick}
+         onClick={onSquareClick}
+         
          >
           {value}
           </button>
