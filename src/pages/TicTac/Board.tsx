@@ -3,20 +3,18 @@ import { useState } from "react";
 import Square from "./Square";
 import './TicTac.scss';
 
-export default function Board(){
-  const [xIsNext, setXisNext] = useState(true);
-const [squares, setSquares]= useState(Array(9).fill(null));
-  
- function handleClick(i) {
-  if(squares[i] || calculateWinner(squares)) return;
-    const nextSquares = squares.slice();
-    if(xIsNext) {
-      nextSquares[i] = 'X';
-    } else {
-      nextSquares[i]= 'O';
+function Board({ xIsNext, squares, onPlay }) {
+  function handleClick(i) {
+    if (calculateWinner(squares) || squares[i]) {
+      return;
     }
-    setSquares(nextSquares);
-    setXisNext(!xIsNext);
+    const nextSquares = squares.slice();
+    if (xIsNext) {
+      nextSquares[i] = "X";
+    } else {
+      nextSquares[i] = "O";
+    }
+    onPlay(nextSquares);
   }
     const winner = calculateWinner(squares);
   let status;
