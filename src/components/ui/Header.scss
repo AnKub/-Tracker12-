@@ -70,6 +70,16 @@
     color: $primary-color;
     background: rgba($primary-color, 0.1);
   }
+  .header-tictac-btn {
+  margin-left: 16px;
+  font-size: 1.2em;
+  text-decoration: none;
+  color: $primary-color;
+  transition: color 0.2s;
+  &:hover {
+    color: $accent-color;
+  }
+}
 }
 
 // Theme toggle

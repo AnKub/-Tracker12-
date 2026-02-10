@@ -1,4 +1,5 @@
 import React from 'react';
+import { Link } from "react-router-dom";
 import { useExpenseStore } from '../../store/useExpenseStore';
 import { useTheme } from '../../hooks/useTheme';
 import './Header.scss';
@@ -33,6 +34,9 @@ return (
             <button className="nav-btn">
               📈 Analytics
             </button>
+            <Link to="/tic-tac" className="header-tictac-btn" title="Гра">
+              🎮
+            </Link>
           </nav>
 
           <div className="header__actions">
