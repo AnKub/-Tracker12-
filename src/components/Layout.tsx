@@ -1,6 +1,6 @@
 import React from 'react';
 import { Header } from './ui/Header';
-import Game from './pages/TicTac/Game';
+import Game from '../pages/TicTac/Game';
 import { Routes, Route } from 'react-router-dom';
 import './Layout.scss';
 
@@ -23,4 +23,5 @@ export const Layout: React.FC<LayoutProps> = ({ children }) => {
     </div>
   );
 };
+
 
