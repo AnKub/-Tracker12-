@@ -18,13 +18,13 @@ function App (){
   
   
   
-  return (
-    <div>
-    <h1 style={styles}>{computed}</h1>
+//   return (
+//     <div>
+//     <h1 style={styles}>{computed}</h1>
 
-    <button onClick={()=> setNumber(prev => prev + 1)}>Add</button>
-    <button onClick={()=> setNumber(prev => prev - 1)}>takeOff</button>
-    <button onClick={()=> setColored(prev => !prev)}>Change Color</button>
-    </div>
-  )
-}
+//     <button onClick={()=> setNumber(prev => prev + 1)}>Add</button>
+//     <button onClick={()=> setNumber(prev => prev - 1)}>takeOff</button>
+//     <button onClick={()=> setColored(prev => !prev)}>Change Color</button>
+//     </div>
+//   )
+// }
