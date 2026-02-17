@@ -1,30 +1,41 @@
-import React, {useState, useMemo} from 'react';
+import React, {useEffect, useState} from 'react';
 
-function complexCompute(num) {
-  let i = 0
-  while(i<1000000000)i++
-  return num *2
+function useLogger(value){
+  useEffect(() => {
+    console.log('Value changed: ', value)
+  },[value])
 }
 
+function useInput(initialValue){
+  const[value,setValue] = useState(initialValue)
+
+  const onChange = event => {
+    setValue(event.target.value)
+  }
+
+  const clear = () => setValue('')
+  return {
+    bind:{value, onChange},
+    value,
+    clear
+  }
+}
+
+
 function App (){
-  const [number, setNumber] = useState(42)
-  const [colored, setColored] = useState(false)
+const input = useInput('') 
+ useLogger(input.value)
 
-  const styles= useMemo(() => ({
-    color: colored ? 'red' : 'black'
-  }), [colored])
+  return (
+    <div className="container pt-3">
+      
+      <input type="text" {...input.bind} />
+      <button onClick={input.clear}>Clear</button>
+           <hr />
+       <h1>{input.value} </h1>
+       
+    </div>
+    HHH
 
-  const computed = useMemo(() => complexCompute(number), [number]) 
-  
-  
-  
-//   return (
-//     <div>
-//     <h1 style={styles}>{computed}</h1>
-
-//     <button onClick={()=> setNumber(prev => prev + 1)}>Add</button>
-//     <button onClick={()=> setNumber(prev => prev - 1)}>takeOff</button>
-//     <button onClick={()=> setColored(prev => !prev)}>Change Color</button>
-//     </div>
-//   )
-// }
+  )
+}
