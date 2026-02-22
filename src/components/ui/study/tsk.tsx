@@ -12,7 +12,6 @@ async function fetchProducts(){
   return data;
 }
 
-// Функція для нормалізації імені продукту
 function normalizeName (name){
   // Обрізаємо пробіли та видаляємо "the" на початку (нечутливо до регістру)
   const value = name?.trim().replace(/^the\s+/i,'');  
