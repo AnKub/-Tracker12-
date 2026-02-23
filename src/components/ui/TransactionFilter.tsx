@@ -10,7 +10,7 @@ type TransactionFilterProps = {
   }) => void;
 };
 
-export const TransactionFilter:React.FC<TransactionFilterPros> = ({categories, onFilter})=>{
+export const TransactionFilter: React.FC<TransactionFilterProps> = ({categories, onFilter})=>{
   const [selectedCategory, setSelectedCategory]= useState('');
   const [minAmount, setMinAmount] = useState('');
   const [maxAmount, setMaxAmount] = useState('');
