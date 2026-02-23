@@ -1,4 +1,5 @@
 import React, {useState} from 'react';
+import './TransactionFilter.scss';
 
 type TransactionFilterProps = {
   categories: string[];
@@ -46,23 +47,21 @@ export const TransactionFilter:React.FC<TransactionFilterPros> = ({categories, o
             {category}
           </option>
         ))}
-      </select>
-       <input
-      type="number"
-      placeholder="Мін. сума"
-      value={minAmount}
-      onChange={handleMinAmountChange}
-      min="0"
-    />
-    <input
-      type="number"
-      placeholder="Макс. сума"
-      value={maxAmount}
-      onChange={handleMaxAmountChange}
-      min="0"
-    />
-    </div>
+       </select>
+          <input
+              type="number"
+              placeholder="Мін. сума"
+              value={minAmount}
+              onChange={handleMinAmountChange}
+              min="0"
+          />
+          <input
+            type="number"
+            placeholder="Макс. сума"
+            value={maxAmount}
+            onChange={handleMaxAmountChange}
+            min="0"
+          />
+      </div>
   );
-
-
 };

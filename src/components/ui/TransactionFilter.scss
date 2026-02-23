@@ -1,0 +1,41 @@
+.transaction-filter {
+  display: flex;
+  gap: 1rem;
+  align-items: center;
+  margin-bottom: 1.5rem;
+
+  select,
+  input[type="number"] {
+    padding: 0.5rem 1rem;
+    border-radius: 0.5rem;
+    border: 1px solid #e5e7eb;
+    font-size: 1rem;
+    background: #fff;
+    color: #111827;
+    transition: border-color 0.2s;
+
+    &:focus {
+      border-color: #1976d2;
+      outline: none;
+    }
+  }
+
+  select {
+    min-width: 140px;
+  }
+
+  input[type="number"] {
+    width: 110px;
+  }
+
+  @media (max-width: 600px) {
+    flex-direction: column;
+    gap: 0.5rem;
+
+    select,
+    input[type="number"] {
+      width: 100%;
+      min-width: unset;
+    }
+  }
+}
