@@ -2,7 +2,7 @@
 async function fetchProducts(){
   // Виконуємо HTTP-запит до fakestoreapi.com
   const response = await fetch('https://fakestoreapi.com/products');
-  // Якщо відповідь неуспішна — кидаємо помилку
+  // відповідь неуспішна — кидаємо помилку
   if(!response.ok){
     throw new Error('Failed to fetch products');
   }
