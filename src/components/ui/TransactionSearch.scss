@@ -1,0 +1,37 @@
+
+
+.transaction-search {
+  margin-bottom: 1.5rem;
+  display: flex;
+  justify-content: flex-end;
+}
+
+.transaction-search__input {
+  padding: 0.5rem 1rem;
+  border-radius: 0.5rem;
+  border: 1px solid #e5e7eb;
+  font-size: 1rem;
+  background: #fff;
+  color: #111827;
+  transition: border-color 0.2s, box-shadow 0.2s;
+
+  &:focus {
+    border-color: #1976d2; // accent-color
+    box-shadow: 0 0 0 2px rgba(25, 118, 210, 0.15);
+    outline: none;
+  }
+
+  &::placeholder {
+    color: #6b7280;
+    opacity: 1;
+  }
+}
+
+@media (max-width: 600px) {
+  .transaction-search {
+    justify-content: stretch;
+  }
+  .transaction-search__input {
+    width: 100%;
+  }
+}
