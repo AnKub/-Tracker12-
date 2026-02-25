@@ -1,6 +1,6 @@
 import React, { useEffect, useState, useCallback } from 'react';
 import { useExpenseStore } from '../store/useExpenseStore';
-import { QuickActions } from '../components/ui/QuickActions'; 
+import { QuickActions } from '../components/layout/QuickActions'; 
 import { ExpenseChart } from '../components/charts/ExpenseChart';
 import { TransactionList } from '../components/ui/TransactionList';
 import { CategoryManager } from '../components/ui/CategoryManager';

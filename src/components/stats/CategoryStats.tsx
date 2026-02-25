@@ -1,6 +1,7 @@
 import React, { useMemo } from 'react';
 import { PieChart, Pie, Sector, LabelList } from 'recharts';
 import type { PieSectorShapeProps } from 'recharts';
+import './CategoryStats.scss';
 
 type CategoryStatsProps = {
   transactions: { category: string; amount: number; type: 'income' | 'expense' }[];

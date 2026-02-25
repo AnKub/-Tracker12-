@@ -1,6 +1,6 @@
 import React, {useState} from 'react';
 import './QuickActions.scss';
-import { TransactionModal} from './TransactionModal';
+import { TransactionModal} from '../ui/TransactionModal';
 
 interface QuickActionsProps {
 className?: string;
