@@ -3,7 +3,7 @@ import { useExpenseStore } from '../store/useExpenseStore';
 import { QuickActions } from '../components/layout/QuickActions'; 
 import { ExpenseChart } from '../components/charts/ExpenseChart';
 import { TransactionList } from '../components/ui/TransactionList';
-import { CategoryManager } from '../components/ui/CategoryManager';
+import { CategoryManager } from '../components/managers/CategoryManager';
 import { Settings } from '../components/ui/Settings/Settings';
 import './Dashboard.scss';
 

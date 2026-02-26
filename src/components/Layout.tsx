@@ -1,5 +1,5 @@
 import React from 'react';
-import { Header } from './ui/Header';
+import { Header } from './layout/Header';
 import Game from '../pages/TicTac/Game';
 import { Routes, Route } from 'react-router-dom';
 import './Layout.scss';
