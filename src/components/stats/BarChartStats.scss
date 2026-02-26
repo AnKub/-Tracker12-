@@ -6,24 +6,51 @@
   margin-bottom: 24px;
   transition: box-shadow 0.2s;
 
-  h3 {
-    font-size: 1.2rem;
-    font-weight: 600;
+  &__header {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
     margin-bottom: 18px;
-    color: #333;
-    letter-spacing: 0.01em;
-  }
 
-  // Адаптивність для мобільних
-  @media (max-width: 600px) {
-    padding: 12px 4px 8px 4px;
     h3 {
-      font-size: 1rem;
-      margin-bottom: 10px;
+      font-size: 1.2rem;
+      font-weight: 600;
+      color: #333;
+      letter-spacing: 0.01em;
+      margin: 0;
     }
   }
 
-  // Стилізація тултіпа 
+  &__currency {
+    font-size: 1rem;
+    padding: 4px 10px;
+    border-radius: 8px;
+    border: 1px solid #e0e0e0;
+    background: #f7f7fa;
+    color: #333;
+    outline: none;
+    transition: border 0.2s;
+    &:focus {
+      border: 1.5px solid #8884d8;
+    }
+  }
+
+  @media (max-width: 600px) {
+    padding: 12px 4px 8px 4px;
+    &__header {
+      flex-direction: column;
+      align-items: flex-start;
+      gap: 8px;
+      h3 {
+        font-size: 1rem;
+      }
+    }
+    &__currency {
+      font-size: 0.95rem;
+      padding: 3px 8px;
+    }
+  }
+
   .recharts-default-tooltip {
     background: #f7f7fa !important;
     border-radius: 8px !important;
@@ -34,7 +61,6 @@
     padding: 8px 14px !important;
   }
 
-  // Стилі для підписів 
   .recharts-label-list {
     font-size: 0.95rem;
     font-weight: 500;
@@ -42,7 +68,6 @@
     text-shadow: 0 1px 2px #fff;
   }
 
-  // Стилі для осей
   .recharts-cartesian-axis-tick-value {
     font-size: 0.98rem;
     fill: #666;
