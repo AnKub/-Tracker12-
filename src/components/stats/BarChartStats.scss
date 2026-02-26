@@ -1,0 +1,50 @@
+.bar-chart-stats {
+  background: #fff;
+  border-radius: 16px;
+  box-shadow: 0 2px 8px rgba(34, 60, 80, 0.07);
+  padding: 24px 16px 16px 16px;
+  margin-bottom: 24px;
+  transition: box-shadow 0.2s;
+
+  h3 {
+    font-size: 1.2rem;
+    font-weight: 600;
+    margin-bottom: 18px;
+    color: #333;
+    letter-spacing: 0.01em;
+  }
+
+  // Адаптивність для мобільних
+  @media (max-width: 600px) {
+    padding: 12px 4px 8px 4px;
+    h3 {
+      font-size: 1rem;
+      margin-bottom: 10px;
+    }
+  }
+
+  // Стилізація тултіпа 
+  .recharts-default-tooltip {
+    background: #f7f7fa !important;
+    border-radius: 8px !important;
+    box-shadow: 0 2px 8px rgba(34, 60, 80, 0.08) !important;
+    font-size: 0.95rem !important;
+    color: #222 !important;
+    border: none !important;
+    padding: 8px 14px !important;
+  }
+
+  // Стилі для підписів 
+  .recharts-label-list {
+    font-size: 0.95rem;
+    font-weight: 500;
+    fill: #444;
+    text-shadow: 0 1px 2px #fff;
+  }
+
+  // Стилі для осей
+  .recharts-cartesian-axis-tick-value {
+    font-size: 0.98rem;
+    fill: #666;
+  }
+}
