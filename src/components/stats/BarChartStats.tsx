@@ -1,6 +1,7 @@
 import React, { useState } from 'react';
 import { BarChart, Bar, XAxis, YAxis, Tooltip, ResponsiveContainer, LabelList } from 'recharts';
 import type { Transaction } from '../../types';
+import { useExchangeRates } from '../../hooks/useExchangeRates';
 import './BarChartStats.scss';
 
 interface CategoryBarData {
@@ -13,13 +14,16 @@ interface BarChartStatsProps {
   type?: 'income' | 'expense';
 }
 
-const rates = { UAH: 1, USD: 0.025, EUR: 0.023 };
+
 
 const BarChartStats: React.FC<BarChartStatsProps> = ({
   transactions,
   type = 'expense',
 }) => {
   const [currency, setCurrency] = useState<'UAH' | 'USD' | 'EUR'>('UAH');
+const { rates, loading, error } = useExchangeRates();
+if (loading) return <div>Завантаження курсів валют...</div>;
+if (error) return <div>{error}</div>;
 
   const filtered = transactions.filter(tx => tx.type === type);
 

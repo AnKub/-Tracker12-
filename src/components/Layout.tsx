@@ -1,6 +1,7 @@
 import React from 'react';
 import { Header } from './layout/Header';
 import Game from '../pages/TicTac/Game';
+import CurrencyRatesWidget from './widgets/CurrencyRatesWidget';
 import { Routes, Route } from 'react-router-dom';
 import './Layout.scss';
 
@@ -10,7 +11,8 @@ interface LayoutProps {
 
 export const Layout: React.FC<LayoutProps> = ({ children }) => {
   return (
-    <div className="layout">
+    <div className="layout"> 
+    <CurrencyRatesWidget />
       <Header />
       <Routes>
         <Route path="/tic-tac" element={<Game />} />
@@ -19,6 +21,7 @@ export const Layout: React.FC<LayoutProps> = ({ children }) => {
         <div className="layout__content">
           {children}
         </div>
+       
       </main>
     </div>
   );
