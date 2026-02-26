@@ -2,9 +2,10 @@ import React, { useEffect, useState, useCallback } from 'react';
 import { useExpenseStore } from '../store/useExpenseStore';
 import { QuickActions } from '../components/layout/QuickActions'; 
 import { ExpenseChart } from '../components/charts/ExpenseChart';
-import { TransactionList } from '../components/ui/TransactionList';
+import { TransactionList } from '../components/lists/TransactionList';
 import { CategoryManager } from '../components/managers/CategoryManager';
-import { Settings } from '../components/ui/Settings/Settings';
+import { Settings } from '../components/settings/Settings';
+import { CategoryStats } from '../components/stats/CategoryStats';
 import './Dashboard.scss';
 
 export const Dashboard: React.FC = () => {
@@ -118,7 +119,9 @@ export const Dashboard: React.FC = () => {
     
       <QuickActions />
 
+
       <ExpenseChart />
+      <CategoryStats transactions={transactions} />
 
       <div className="dashboard__section">
         <h2 className="dashboard__section-title">
