@@ -1,8 +1,8 @@
 import React from 'react';
 import './Settings.scss';
-import {useTheme} from '../../../hooks/useTheme';
-import type {Language, DateFormat} from '../../../types';
-import {useSettingsStore} from '../../../store/useSettingsStore';
+import {useTheme} from '../../hooks/useTheme';
+import type {Language, DateFormat} from '../../types';
+import {useSettingsStore} from '../../store/useSettingsStore';
 
 interface  SettingsProps {
   isOpen: boolean;
