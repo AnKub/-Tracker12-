@@ -49,7 +49,7 @@ describe('useExchangeRates', () => {
     expect(result.current.error).toBeNull();
   });
 
-  // Тест 3: error при fetch fail (mock fetch)
+  // Тест 3: error mock
   it('повертає error при помилці fetch', async () => {
     vi.spyOn(globalThis, 'fetch').mockImplementation(() => Promise.reject('API error'));
 
