@@ -2,14 +2,12 @@ import { describe, it, expect, vi } from 'vitest';
 import { renderHook, waitFor } from '@testing-library/react';
 import { useExchangeRates } from './useExchangeRates';
 
-// Групуємо всі тести для useExchangeRates
 
 describe('useExchangeRates', () => {
   // Тест 1: дефолтні курси при старті
   it('повертає дефолтні курси при старті', async () => {
     const { result } = renderHook(() => useExchangeRates());
     expect(result.current.rates).toEqual({ UAH: 1, USD: 0.025, EUR: 0.023 });
-    // Чекаємо, поки loading стане false
     await waitFor(() => {
       expect(result.current.loading).toBe(false);
     });
