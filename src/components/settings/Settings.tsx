@@ -11,6 +11,7 @@ interface  SettingsProps {
 
 export const Settings: React.FC<SettingsProps> = ({isOpen, onClose}) => {
   const {theme, toggleTheme} = useTheme();
+  console.log('Current theme:', theme);
   const {
     currency,
      language, 

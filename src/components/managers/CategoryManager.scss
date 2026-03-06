@@ -146,11 +146,17 @@
 
       &:hover {
         @include text-secondary;
-        background-color: darken($light-border, 10%);
+        background-color: color.adjust($light-border, $lightness: -10%);
         
-        .dark & {
-          background-color: lighten($dark-border, 10%);
-        }
+           .dark & {
+      background-color: $dark-card;
+    }
+    .fuchsia & {
+      background-color: $fuchsia-card;
+    }
+    .pastel & {
+      background-color: $pastel-card;
+    }
       }
     }
   }
