@@ -68,13 +68,13 @@ export const getCurrentTheme = (): ThemeName => {
 
 export const setTheme = (themeName: ThemeName) => {
   localStorage.setItem('theme', themeName);
-  document.documentElement.classList.remove('dark', 'fuchsia', 'pastel');
+  document.body.classList.remove('dark', 'fuchsia', 'pastel');
   if (themeName === 'dark') {
-    document.documentElement.classList.add('dark');
+    document.body.classList.add('dark');
   } else if (themeName === 'fuchsia') {
-    document.documentElement.classList.add('fuchsia');
+    document.body.classList.add('fuchsia');
   } else if (themeName === 'pastel') {
-    document.documentElement.classList.add('pastel');
+    document.body.classList.add('pastel');
   }
 };
 

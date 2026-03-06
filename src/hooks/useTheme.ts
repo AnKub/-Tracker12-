@@ -3,18 +3,10 @@ import { getCurrentTheme, setTheme as saveTheme, type ThemeName, getThemeColors 
 
 export const useTheme = () => {
   const [theme, setThemeState] = useState<ThemeName>(getCurrentTheme);
-  const [mounted, setMounted] = useState(false);
 
   useEffect(() => {
-    setMounted(true);
     saveTheme(theme);
-  }, []);
-
-  useEffect(() => {
-    if (mounted) {
-      saveTheme(theme);
-    }
-  }, [theme, mounted]);
+  }, [theme]);
 
   // Перемикає тему циклічно: light → dark → fuchsia → pastel → light ...
   const themeOrder: ThemeName[] = ['light', 'dark', 'fuchsia', 'pastel'];
@@ -34,7 +26,6 @@ export const useTheme = () => {
     theme, 
     toggleTheme, 
     setTheme, 
-    colors,
-    mounted 
+    colors
   };
 };
