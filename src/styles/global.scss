@@ -21,22 +21,31 @@ body {
   }
 }
 
-// Dark mode toggle
 html.dark {
   body {
     background: $dark-background;
     color: $dark-text;
   }
-  
 }
+
 body.fuchsia {
   background: $fuchsia-background;
   color: $fuchsia-text;
+  --text-secondary: #{$fuchsia-text-secondary};
+  --input-bg: #{$fuchsia-background};
+  --border-light: #{$fuchsia-border};
+  --primary-color: #{$fuchsia-primary};
+  --accent-color: #{$fuchsia-accent};
 }
 
 body.pastel {
   background: $pastel-background;
   color: $pastel-text;
+  --text-secondary: #{$pastel-text-secondary};
+  --input-bg: #{$pastel-background};
+  --border-light: #{$pastel-border};
+  --primary-color: #{$pastel-primary};
+  --accent-color: #{$pastel-accent};
 }
 
 h1, h2, h3, h4, h5, h6 {
