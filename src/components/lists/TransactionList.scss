@@ -14,6 +14,14 @@
     .dark & {
       border-color: $dark-border;
     }
+     .fuchsia & {
+
+    border-color: $fuchsia-border;
+  }
+  .pastel & {
+
+    border-color: $pastel-border;
+  }
   }
 
   .filter-buttons {

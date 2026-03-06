@@ -16,10 +16,13 @@ export const useTheme = () => {
     }
   }, [theme, mounted]);
 
+  // Перемикає тему циклічно: light → dark → fuchsia → pastel → light ...
+  const themeOrder: ThemeName[] = ['light', 'dark', 'fuchsia', 'pastel'];
   const toggleTheme = () => {
-    const newTheme: ThemeName = theme === 'light' ? 'dark' : 'light';
-    setThemeState(newTheme);  
-  };  
+    const currentIdx = themeOrder.indexOf(theme);
+    const nextTheme = themeOrder[(currentIdx + 1) % themeOrder.length];
+    setThemeState(nextTheme);
+  };
 
   const setTheme = (newTheme: ThemeName) => {
     setThemeState(newTheme);

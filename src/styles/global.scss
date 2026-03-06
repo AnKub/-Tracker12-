@@ -27,6 +27,16 @@ html.dark {
     background: $dark-background;
     color: $dark-text;
   }
+  
+}
+body.fuchsia {
+  background: $fuchsia-background;
+  color: $fuchsia-text;
+}
+
+body.pastel {
+  background: $pastel-background;
+  color: $pastel-text;
 }
 
 h1, h2, h3, h4, h5, h6 {

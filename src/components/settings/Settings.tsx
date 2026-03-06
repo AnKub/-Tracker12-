@@ -36,12 +36,13 @@ export const Settings: React.FC<SettingsProps> = ({isOpen, onClose}) => {
         </div>
         <div className="settings__body">
                   <div className="setting-item">
-                    <span className="setting-item__label">Dark Theme</span>
-                    <button onClick={toggleTheme}
-                    className={`toggle-btn ${theme === 'dark'? 'toggle-btn--active': ''}`}
-                    >
-                        {theme === 'dark' ? '🌙' : '☀️'}
-                    </button>
+                <span className="setting-item__label">Theme</span>
+                        <button onClick={toggleTheme} className="toggle-btn">
+                          {theme === 'light' && '☀️'}
+                          {theme === 'dark' && '🌙'}
+                          {theme === 'fuchsia' && '💖'}
+                          {theme === 'pastel' && '🧁'}
+                        </button> 
                   </div>
 
                   <div className="setting-item">

@@ -9,6 +9,13 @@
   
   .dark & {
     background: $dark-background;
+  } .fuchsia & {
+    background: $fuchsia-card;
+    border-color: $fuchsia-border;
+  }
+  .pastel & {
+    background: $pastel-card;
+    border-color: $pastel-border;
   }
 
   &__main {
