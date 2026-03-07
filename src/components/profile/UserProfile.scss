@@ -15,11 +15,16 @@
   z-index: 1000;
 
   &__content {
-    @include card;
-    border-radius: 12px;
+    background-color: $light-card;
+    border-radius: 18px;
     width: 90%;
     max-width: 400px;
-    box-shadow: 0 10px 25px rgba(0, 0, 0, 0.2);
+    box-shadow: 0 8px 32px 0 rgba(31, 38, 135, 0.15);
+    backdrop-filter: blur(6px);
+
+    .dark & { background-color: $dark-card; }
+    .fuchsia & { background-color: $fuchsia-card; }
+    .pastel & { background-color: $pastel-card; }
   }
 
   &__header {
@@ -27,15 +32,17 @@
     justify-content: space-between;
     align-items: center;
     padding: 1.5rem;
-    border-bottom: 1px solid $light-border;
-    
-    .dark & {
-      border-color: $dark-border;
-    }
+    border-bottom: 1.5px solid $light-border;
+
+    .dark & { border-color: $dark-border; }
+    .fuchsia & { border-color: $fuchsia-border; }
+    .pastel & { border-color: $pastel-border; }
 
     h2 {
       margin: 0;
       @include text-primary;
+      font-size: 1.25rem;
+      letter-spacing: 0.01em;
     }
   }
 
@@ -46,8 +53,11 @@
     cursor: pointer;
     @include text-secondary;
     padding: 0.25rem;
+    border-radius: 50%;
+    transition: background 0.2s, color 0.2s;
 
     &:hover {
+      background: rgba(0,0,0,0.07);
       @include text-primary;
     }
   }
@@ -73,6 +83,7 @@
     font-size: 2rem;
     font-weight: bold;
     color: white;
+    box-shadow: 0 2px 8px rgba(34, 60, 80, 0.10);
   }
 
   &__field {
@@ -93,7 +104,6 @@
 
     input, select {
       @include input-base;
-      
       &:focus {
         border-color: $primary-color;
       }
@@ -104,9 +114,10 @@
     @include button-primary;
     width: 100%;
     padding: 0.75rem;
-    border-radius: 8px;
+    border-radius: 10px;
     font-weight: 500;
     margin-top: 1rem;
+    font-size: 1.05rem;
   }
 
   &__actions {
@@ -119,8 +130,9 @@
     @include button-success;
     flex: 1;
     padding: 0.75rem;
-    border-radius: 8px;
+    border-radius: 10px;
     font-weight: 500;
+    font-size: 1.05rem;
   }
 
   &__cancel-btn {
@@ -129,22 +141,21 @@
     background-color: $light-border;
     @include text-primary;
     border: none;
-    border-radius: 8px;
+    border-radius: 10px;
     cursor: pointer;
     font-weight: 500;
     transition: all $transition-fast;
-    
-    .dark & {
-      background-color: $dark-border;
-    }
+
+    .dark & { background-color: $dark-border; }
+    .fuchsia & { background-color: $fuchsia-border; }
+    .pastel & { background-color: $pastel-border; }
 
     &:hover {
       @include text-secondary;
       background-color: color.adjust($light-border, $lightness: -10%);
-      
-      .dark & {
-        background-color: color.adjust($dark-border, $lightness: 10%);
-      }
+      .dark & { background-color: color.adjust($dark-border, $lightness: 10%); }
+      .fuchsia & { background-color: color.adjust($fuchsia-border, $lightness: 10%); }
+      .pastel & { background-color: color.adjust($pastel-border, $lightness: 10%); }
     }
   }
 }
