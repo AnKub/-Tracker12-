@@ -2,12 +2,12 @@
   display: inline-flex;
   align-items: center;
   gap: 10px;
-  background: #f7f7fa;
+  background: $light-card;
   border-radius: 8px;
   padding: 6px 16px;
   font-size: 1rem;
   font-weight: 500;
-  color: #222;
+  color: $light-text;
   box-shadow: 0 2px 8px rgba(34, 60, 80, 0.07);
   letter-spacing: 0.01em;
   margin: 0 0 12px 0;
@@ -22,6 +22,19 @@
     color: #c0392b;
     background: #ffeaea;
     border: 1px solid #f5c6cb;
+  }
+
+  .dark & {
+    background: $dark-card;
+    color: $dark-text;
+  }
+  .fuchsia & {
+    background: $fuchsia-card;
+    color: $fuchsia-text;
+  }
+  .pastel & {
+    background: $pastel-card;
+    color: $pastel-text;
   }
 
   @media (max-width: 600px) {
